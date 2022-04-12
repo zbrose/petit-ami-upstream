@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		76A6540B2805E77E0029F49B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 76A6540A2805E77E0029F49B /* README.md */; };
+		76A6540D2805E7B60029F49B /* Triston Palacios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A6540C2805E7B60029F49B /* Triston Palacios.swift */; };
 		B76B70502805E45300CA1DAD /* petit_amiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76B704F2805E45300CA1DAD /* petit_amiApp.swift */; };
 		B76B70522805E45300CA1DAD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76B70512805E45300CA1DAD /* ContentView.swift */; };
 		B76B70542805E45600CA1DAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B76B70532805E45600CA1DAD /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		76A6540A2805E77E0029F49B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		76A6540C2805E7B60029F49B /* Triston Palacios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Triston Palacios.swift"; sourceTree = "<group>"; };
 		B76B704C2805E45300CA1DAD /* petit-ami.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "petit-ami.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B76B704F2805E45300CA1DAD /* petit_amiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = petit_amiApp.swift; sourceTree = "<group>"; };
 		B76B70512805E45300CA1DAD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,10 +55,12 @@
 		B76B704E2805E45300CA1DAD /* petit-ami */ = {
 			isa = PBXGroup;
 			children = (
+				76A6540A2805E77E0029F49B /* README.md */,
 				B76B704F2805E45300CA1DAD /* petit_amiApp.swift */,
 				B76B70512805E45300CA1DAD /* ContentView.swift */,
 				B76B70532805E45600CA1DAD /* Assets.xcassets */,
 				B76B70552805E45600CA1DAD /* Preview Content */,
+				76A6540C2805E7B60029F49B /* Triston Palacios.swift */,
 			);
 			path = "petit-ami";
 			sourceTree = "<group>";
@@ -125,6 +131,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76A6540B2805E77E0029F49B /* README.md in Resources */,
 				B76B70572805E45600CA1DAD /* Preview Assets.xcassets in Resources */,
 				B76B70542805E45600CA1DAD /* Assets.xcassets in Resources */,
 			);
@@ -138,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B76B70522805E45300CA1DAD /* ContentView.swift in Sources */,
+				76A6540D2805E7B60029F49B /* Triston Palacios.swift in Sources */,
 				B76B70502805E45300CA1DAD /* petit_amiApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
