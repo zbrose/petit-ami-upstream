@@ -12,6 +12,9 @@ struct ContentView: View {
         HStack{
             FeedButton()
                 .padding()
+                .onTapGesture {
+                    print("feeding time")
+                }
             
             SleepButton()
                 .padding()
