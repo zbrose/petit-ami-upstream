@@ -70,12 +70,7 @@
 		B76B704E2805E45300CA1DAD /* petit-ami */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-				76A6540A2805E77E0029F49B /* README.md */,
-				B76B704F2805E45300CA1DAD /* petit_amiApp.swift */,
-=======
       
->>>>>>> 5578a2fedc9d4344c7dae735637434652b6a0589
 				B76B705D2805E76900CA1DAD /* README.md */,
 				B76B704F2805E45300CA1DAD /* petit_amiApp.swift */,
 				B76B70512805E45300CA1DAD /* ContentView.swift */,
