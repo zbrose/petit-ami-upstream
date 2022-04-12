@@ -131,7 +131,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76A6540B2805E77E0029F49B /* README.md in Resources */,
+				B76B705E2805E76900CA1DAD /* README.md in Resources */,
 				B76B70572805E45600CA1DAD /* Preview Assets.xcassets in Resources */,
 				B76B70542805E45600CA1DAD /* Assets.xcassets in Resources */,
 			);
@@ -145,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B76B70522805E45300CA1DAD /* ContentView.swift in Sources */,
+				76A6540F2805EB820029F49B /* evan-test.swift in Sources */,
 				76A6540D2805E7B60029F49B /* Triston Palacios.swift in Sources */,
 				B76B70502805E45300CA1DAD /* petit_amiApp.swift in Sources */,
 			);
