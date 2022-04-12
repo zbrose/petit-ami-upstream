@@ -1,5 +1,5 @@
 # Petit Ami
-Petit Ami is an iOS real-time pocket monster app created in Xcode using Swift.  Users are able to adopt there very own Ami companion which they can feed, play mini games with, and evolve.
+Petit Ami is an iOS real-time pocket monster app created in Xcode using Swift.  Users are able to adopt therir very own Ami companion which they can feed, play mini games with, and evolve.
 
 ## User Stories
 As a user I want to: 
