@@ -9,8 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("bruh where are these files?")
-            .padding()
+        HStack{
+            Text("Petit Ami")
+        }
+        
+        
+        
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
     }
 }
 
@@ -19,4 +25,6 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
 
