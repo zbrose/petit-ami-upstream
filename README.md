@@ -39,6 +39,7 @@ As a user I want to:
 
 ## Sprints
 ### Tuesday 
+- Get repos linked up and upstream working
 - Research swift
 - Work on backend as group 
 ### Wednesday
