@@ -10,12 +10,19 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         HStack{
-            Text("Petit Ami")
+            FeedButton()
+                .padding()
+            
+            SleepButton()
+                .padding()
+            
+            DrinkButton()
+                .padding()
+            
+            PetButton()
+                .padding()
         }
-        
-        
-        
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
         .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
     }
 }

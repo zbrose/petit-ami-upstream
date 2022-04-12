@@ -9,7 +9,15 @@ import SwiftUI
 
 struct PetButton: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Circle()
+                .frame(width: 50)
+                .foregroundColor(Color(hue: 0.000, saturation: 0.000, brightness: 0.908))
+            
+            Image(systemName: "hand.raised.fill")
+                .font(.system(size: 30.0, weight: .bold))
+        }
+        .frame(height:50)
     }
 }
 
