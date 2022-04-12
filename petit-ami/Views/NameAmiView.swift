@@ -8,8 +8,36 @@
 import SwiftUI
 
 struct NameAmiView: View {
+    @EnvironmentObject var realmManager: RealmManager
+    @State private var name: String = ""
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("What do you want to name your Ami?")
+                .font(.title2).bold()
+                .frame(maxWidth: 200, alignment: .leading)
+            
+            TextField(
+                "Enter name here",
+                text: $name
+            )
+            .textFieldStyle(.roundedBorder)
+            .frame(maxWidth: 200)
+            
+            Button{
+                if name != "" {
+                    realmManager.addAmi(amiName: name)
+                }
+                dismiss()
+            } label: {
+                Text("Next")
+                    .padding()
+                    .padding(.horizontal)
+                    .background(Color(hue: 0.328, saturation: 0.796, brightness: 0.408))
+                    .cornerRadius(30)
+            }
+        }
     }
 }
 
