@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+
 		1AAA3A5F2805E7A9006318D3 /* Bryan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA3A5E2805E7A9006318D3 /* Bryan.swift */; };
 		1AAA3A662805EE6F006318D3 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA3A642805EE6F006318D3 /* Test.swift */; };
 		1AAA3A672805EE6F006318D3 /* evan-test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAA3A652805EE6F006318D3 /* evan-test.swift */; };
+
 		B76B70502805E45300CA1DAD /* petit_amiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76B704F2805E45300CA1DAD /* petit_amiApp.swift */; };
 		B76B70522805E45300CA1DAD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76B70512805E45300CA1DAD /* ContentView.swift */; };
 		B76B70542805E45600CA1DAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B76B70532805E45600CA1DAD /* Assets.xcassets */; };
@@ -18,10 +20,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+
 		1AAA3A5C2805E749006318D3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1AAA3A5E2805E7A9006318D3 /* Bryan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bryan.swift; sourceTree = "<group>"; };
 		1AAA3A642805EE6F006318D3 /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		1AAA3A652805EE6F006318D3 /* evan-test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "evan-test.swift"; sourceTree = "<group>"; };
+
 		B76B704C2805E45300CA1DAD /* petit-ami.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "petit-ami.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B76B704F2805E45300CA1DAD /* petit_amiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = petit_amiApp.swift; sourceTree = "<group>"; };
 		B76B70512805E45300CA1DAD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,10 +48,12 @@
 		B76B70432805E45300CA1DAD = {
 			isa = PBXGroup;
 			children = (
+
 				1AAA3A652805EE6F006318D3 /* evan-test.swift */,
 				1AAA3A642805EE6F006318D3 /* Test.swift */,
 				1AAA3A5E2805E7A9006318D3 /* Bryan.swift */,
 				1AAA3A5C2805E749006318D3 /* README.md */,
+
 				B76B704E2805E45300CA1DAD /* petit-ami */,
 				B76B704D2805E45300CA1DAD /* Products */,
 			);
@@ -64,11 +70,13 @@
 		B76B704E2805E45300CA1DAD /* petit-ami */ = {
 			isa = PBXGroup;
 			children = (
+				76A6540A2805E77E0029F49B /* README.md */,
 				B76B704F2805E45300CA1DAD /* petit_amiApp.swift */,
 				B76B705D2805E76900CA1DAD /* README.md */,
 				B76B70512805E45300CA1DAD /* ContentView.swift */,
 				B76B70532805E45600CA1DAD /* Assets.xcassets */,
 				B76B70552805E45600CA1DAD /* Preview Content */,
+				76A6540C2805E7B60029F49B /* Triston Palacios.swift */,
 			);
 			path = "petit-ami";
 			sourceTree = "<group>";
@@ -156,6 +164,8 @@
 				1AAA3A662805EE6F006318D3 /* Test.swift in Sources */,
 				1AAA3A672805EE6F006318D3 /* evan-test.swift in Sources */,
 				B76B70522805E45300CA1DAD /* ContentView.swift in Sources */,
+				76A6540F2805EB820029F49B /* evan-test.swift in Sources */,
+				76A6540D2805E7B60029F49B /* Triston Palacios.swift in Sources */,
 				B76B70502805E45300CA1DAD /* petit_amiApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
