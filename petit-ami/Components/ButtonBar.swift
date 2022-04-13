@@ -15,21 +15,24 @@ struct ButtonBar: View {
          
             FeedButton()
                 .onTapGesture {
-                    print("feeding time")
+                    print("The Ami is fed")
+                    
                 }
             
             SleepButton()
                 .onTapGesture {
-                    print("Hello ")
+                    print("Sleep")
                 }
-            
-            
             
             DrinkButton()
                 .onTapGesture {
-                    print("Hello ")
+                    print("Drink")
                 }
+            
             PetButton()
+                .onTapGesture {
+                    print("Pet")
+                }
             
         }
     }
@@ -38,5 +41,6 @@ struct ButtonBar: View {
 struct ButtonBar_Previews: PreviewProvider {
     static var previews: some View {
         ButtonBar()
+            .environmentObject(RealmManager())
     }
 }

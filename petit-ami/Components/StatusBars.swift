@@ -18,6 +18,7 @@ struct StatusBars: View {
             List {
                 ForEach(realmManager.amis, id: \.id) { ami in
                     if !ami.isInvalidated {
+
                         Text(String(ami.hunger-25))
                     }
                 }
@@ -25,6 +26,7 @@ struct StatusBars: View {
         }
     }
 }
+
 
 struct StatusBars_Previews: PreviewProvider {
     static var previews: some View {

@@ -14,7 +14,7 @@ struct ContentView: View {
     var body: some View {
         VStack{
             PetInfo()
-                .padding(.bottom,200)
+                Spacer()
           PlayArea()
                 .padding(.bottom,200)
             
