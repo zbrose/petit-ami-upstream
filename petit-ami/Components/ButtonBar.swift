@@ -15,23 +15,24 @@ struct ButtonBar: View {
          
             FeedButton()
                 .onTapGesture {
-                   let feed realmManager.amis[0].hunger - 5
                     print("The Ami is fed")
                     
                 }
             
             SleepButton()
                 .onTapGesture {
-                    print("Hello ")
+                    print("Sleep")
                 }
-            
-            
             
             DrinkButton()
                 .onTapGesture {
-                    print("Hello ")
+                    print("Drink")
                 }
+            
             PetButton()
+                .onTapGesture {
+                    print("Pet")
+                }
             
         }
     }
