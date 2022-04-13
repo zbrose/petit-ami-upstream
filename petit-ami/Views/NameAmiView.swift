@@ -14,9 +14,12 @@ struct NameAmiView: View {
     
     var body: some View {
         VStack {
+            Text("Welcome to Petit Ami!")
+                .font(.title).bold()
+                .padding()
             Text("What do you want to name your Ami?")
                 .font(.title2).bold()
-                .frame(maxWidth: 200, alignment: .leading)
+                .frame(maxWidth: 300)
             
             TextField(
                 "Enter name here",
