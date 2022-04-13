@@ -35,6 +35,7 @@ struct PetInfo: View {
                 Text("Hunger: \(String(realmManager.amis[0].hunger))")
                     .frame(width: .infinity,  alignment: .top)
                     .font(.system(size: 10, weight: .bold, design: .default))
+                    .onAppear()
             }
         }
             

@@ -16,8 +16,9 @@ struct ButtonBar: View {
             FeedButton()
                 .onTapGesture {
                     print("The Ami is fed")
-                    
+                    realmManager.updateAmiHunger(id:realmManager.amis[0].id)
                 }
+                .environmentObject(realmManager)
             
             SleepButton()
                 .onTapGesture {
@@ -42,5 +43,6 @@ struct ButtonBar_Previews: PreviewProvider {
     static var previews: some View {
         ButtonBar()
             .environmentObject(RealmManager())
+            
     }
 }
