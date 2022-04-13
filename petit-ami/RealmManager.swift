@@ -14,13 +14,13 @@ class RealmManager: ObservableObject {
     
     init() {
             openRealm()
-            getAmi()
+            getAmis()
         }
     
     func openRealm() {
             do {
                 // Setting the schema version
-                let config = Realm.Configuration(schemaVersion: 1)
+                let config = Realm.Configuration(schemaVersion: 2)
 
                 // Letting Realm know we want the defaultConfiguration to be the config variable
                 Realm.Configuration.defaultConfiguration = config
@@ -45,7 +45,7 @@ class RealmManager: ObservableObject {
                        
                         // Adding newTask to localRealm
                         localRealm.add(newAmi)
-                        getAmi()
+                        getAmis()
                         // Re-setting the tasks array
                         print("Ami Created!", newAmi)
                         
@@ -56,7 +56,7 @@ class RealmManager: ObservableObject {
             }
         }
     
-    func getAmi(){
+    func getAmis() {
             if let localRealm = localRealm {
                 let allAmis = localRealm.objects(Ami.self)
                 amis = []

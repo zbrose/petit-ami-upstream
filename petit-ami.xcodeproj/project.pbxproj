@@ -10,6 +10,7 @@
 		1A14F143280631EA001CA26E /* Ami.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A14F142280631EA001CA26E /* Ami.swift */; };
 		1A14F1452806336E001CA26E /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A14F1442806336E001CA26E /* RealmManager.swift */; };
 		1A14F147280633B8001CA26E /* NameAmiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A14F146280633B8001CA26E /* NameAmiView.swift */; };
+		1A14F14928074602001CA26E /* CreateAmi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A14F14828074602001CA26E /* CreateAmi.swift */; };
 		B76B70502805E45300CA1DAD /* petit_amiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76B704F2805E45300CA1DAD /* petit_amiApp.swift */; };
 		B76B70522805E45300CA1DAD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76B70512805E45300CA1DAD /* ContentView.swift */; };
 		B76B70542805E45600CA1DAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B76B70532805E45600CA1DAD /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 		1A14F142280631EA001CA26E /* Ami.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ami.swift; sourceTree = "<group>"; };
 		1A14F1442806336E001CA26E /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		1A14F146280633B8001CA26E /* NameAmiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameAmiView.swift; sourceTree = "<group>"; };
+		1A14F14828074602001CA26E /* CreateAmi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAmi.swift; sourceTree = "<group>"; };
 		1AAA3A5C2805E749006318D3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B76B704C2805E45300CA1DAD /* petit-ami.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "petit-ami.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B76B704F2805E45300CA1DAD /* petit_amiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = petit_amiApp.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				B778043A28061F62009E9FD1 /* SleepButton.swift */,
 				B778043C28061F73009E9FD1 /* DrinkButton.swift */,
 				B778043E28061F8A009E9FD1 /* PetButton.swift */,
+				1A14F14828074602001CA26E /* CreateAmi.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A14F14928074602001CA26E /* CreateAmi.swift in Sources */,
 				B778043D28061F73009E9FD1 /* DrinkButton.swift in Sources */,
 				B778043728061F41009E9FD1 /* StatusBars.swift in Sources */,
 				B778043B28061F62009E9FD1 /* SleepButton.swift in Sources */,

@@ -9,24 +9,29 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var realmManager = RealmManager()
-    @State private var showNameAmiView = true
+    @State private var showNameAmiView = false
     
     var body: some View {
         HStack{
+
             FeedButton()
-                .padding()
                 .onTapGesture {
                     print("feeding time")
                 }
             
             SleepButton()
-                .padding()
+                .onTapGesture {
+                    print(realmManager.amis[0].name)
+                }
             
             DrinkButton()
-                .padding()
             
             PetButton()
-                .padding()
+            
+            CreateAmi()
+                .onTapGesture{
+                    showNameAmiView.toggle()
+                }
         }
         .sheet(isPresented: $showNameAmiView) {
             NameAmiView()

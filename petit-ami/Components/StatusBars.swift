@@ -9,20 +9,26 @@ import SwiftUI
 
 struct StatusBars: View {
     @EnvironmentObject var realmManager: RealmManager
-//    let hungerCount = realmManager.amis
+    
     var body: some View {
         VStack{
         Text("Hunger")
             .font(.title).bold()
-//        Text("the hunger is \(hungerCount)")
-       
+            
+            List {
+                ForEach(realmManager.amis, id: \.id) { ami in
+                    if !ami.isInvalidated {
+                        Text(ami.name)
+                    }
+                }
+            }
         }
-       
     }
 }
 
 struct StatusBars_Previews: PreviewProvider {
     static var previews: some View {
         StatusBars()
+            .environmentObject(RealmManager())
     }
 }
