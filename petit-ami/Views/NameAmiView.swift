@@ -34,7 +34,8 @@ struct NameAmiView: View {
                 Text("Next")
                     .padding()
                     .padding(.horizontal)
-                    .background(Color(hue: 0.328, saturation: 0.796, brightness: 0.408))
+                    .foregroundColor(.white)
+                    .background(.black)
                     .cornerRadius(30)
             }
         }

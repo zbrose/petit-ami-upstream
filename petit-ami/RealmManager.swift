@@ -26,6 +26,9 @@ class RealmManager: ObservableObject {
 
                 // Trying to open a Realm and saving it into the localRealm variable
                 localRealm = try Realm()
+                // Get on-disk location of the default Realm
+                let realm = try! Realm()
+                print("Realm is located at:", realm.configuration.fileURL!)
             } catch {
                 print("Error opening Realm", error)
             }

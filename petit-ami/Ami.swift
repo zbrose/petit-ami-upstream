@@ -11,7 +11,7 @@ import RealmSwift
 class Ami: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var id: ObjectId
     @Persisted var name = ""
-    @Persisted var creationDate = Date()
+    @Persisted var creationDate = Date()// how can can we create the date
     @Persisted var age = 0
     @Persisted var lifeStage = "baby"
     @Persisted var lvl = 0
