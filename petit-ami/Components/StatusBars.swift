@@ -18,7 +18,7 @@ struct StatusBars: View {
             List {
                 ForEach(realmManager.amis, id: \.id) { ami in
                     if !ami.isInvalidated {
-                        Text(ami.name)
+                        Text(ami.lifeStage)
                     }
                 }
             }
