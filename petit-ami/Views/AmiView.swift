@@ -6,15 +6,18 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct AmiView: View {
+    @EnvironmentObject var realmManager : RealmManager
+    let amis = realm.objects(Ami.self)
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(Ami.self)
     }
 }
 
-struct AmiView_Previews: PreviewProvider {
-    static var previews: some View {
-        AmiView()
-    }
-}
+//struct AmiView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AmiView(ami:Ami)
+//    }
+//}

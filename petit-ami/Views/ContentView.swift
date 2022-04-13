@@ -12,27 +12,25 @@ struct ContentView: View {
     @State private var showNameAmiView = false
     
     var body: some View {
-        HStack{
-
-            FeedButton()
-                .onTapGesture {
-                    print("feeding time")
-                }
-            
-            SleepButton()
-                .onTapGesture {
-                    print(realmManager.amis[0].name)
-                }
-            
-            DrinkButton()
-            
-            PetButton()
+        VStack{
+          PlayArea()
+          ButtonBar()
+//            List {
+//                ForEach(realmManager.amis, id: \.id) { ami in
+//                    if !ami.isInvalidated {
+//                        Text(String(ami.hunger-25))
+//                    }
+//                }
+//            }
+//
             
             CreateAmi()
                 .onTapGesture{
                     showNameAmiView.toggle()
+                    
                 }
         }
+        
         .sheet(isPresented: $showNameAmiView) {
             NameAmiView()
                 .environmentObject(realmManager)
