@@ -31,6 +31,7 @@ struct ContentView: View {
         .sheet(isPresented: $showNameAmiView) {
             NameAmiView()
                 .environmentObject(realmManager)
+            
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
         .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))

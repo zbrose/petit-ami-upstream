@@ -14,6 +14,7 @@ class RealmManager: ObservableObject {
     
     init() {
             openRealm()
+            getAmi()
         }
     
     func openRealm() {
@@ -44,12 +45,23 @@ class RealmManager: ObservableObject {
                        
                         // Adding newTask to localRealm
                         localRealm.add(newAmi)
-                        
+                        getAmi()
                         // Re-setting the tasks array
                         print("Ami Created!", newAmi)
+                        
                     }
                 } catch {
                     print("Error adding task to Realm: \(error)")
+                }
+            }
+        }
+    
+    func getAmi(){
+            if let localRealm = localRealm {
+                let allAmis = localRealm.objects(Ami.self)
+                amis = []
+                allAmis.forEach{ami in
+                    amis.append(ami)
                 }
             }
         }

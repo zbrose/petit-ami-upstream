@@ -31,6 +31,7 @@ struct NameAmiView: View {
             Button{
                 if name != "" {
                     realmManager.addAmi(amiName: name)
+                    
                 }
                 dismiss()
             } label: {

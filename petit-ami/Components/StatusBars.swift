@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct StatusBars: View {
+    @EnvironmentObject var realmManager: RealmManager
+//    let hungerCount = realmManager.amis
     var body: some View {
-        Text("Status")
+        VStack{
+        Text("Hunger")
+            .font(.title).bold()
+//        Text("the hunger is \(hungerCount)")
+       
+        }
+       
     }
 }
 
