@@ -13,7 +13,12 @@ struct ContentView: View {
     
     var body: some View {
         VStack{
+            PetInfo()
+                .padding(.bottom,200)
           PlayArea()
+                .padding(.bottom,200)
+            
+        
           ButtonBar()
 //            List {
 //                ForEach(realmManager.amis, id: \.id) { ami in
@@ -44,6 +49,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(RealmManager())
     }
 }
 
