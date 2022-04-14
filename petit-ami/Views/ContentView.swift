@@ -13,7 +13,7 @@ struct ContentView: View {
     
     var body: some View {
         VStack{
-          ButtonBar()
+            ButtonBar()
 //            List {
 //                ForEach(realmManager.amis, id: \.id) { ami in
 //                    if !ami.isInvalidated {
