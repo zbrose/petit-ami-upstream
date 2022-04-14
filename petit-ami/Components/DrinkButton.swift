@@ -14,8 +14,11 @@ struct DrinkButton: View {
                 .frame(width: 50)
                 .foregroundColor(Color(hue: 0.000, saturation: 0.000, brightness: 0.908))
             
-            Image(systemName: "fuelpump")
-                .font(.system(size: 30.0, weight: .bold))
+            Image("Hygiene")
+                .resizable()
+                .padding(.all)
+                .padding(.top,5)
+                .frame(width: 80, height: 80)
         }
         .frame(height:50)
     }
