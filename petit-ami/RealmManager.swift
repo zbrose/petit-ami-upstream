@@ -65,16 +65,63 @@ class RealmManager: ObservableObject {
                 }
             }
         }
+    
     func updateAmiHunger(id:ObjectId){
         if let localRealm = localRealm {
             do{
-               let amiToUpdateHunger = localRealm.objects(Ami.self).filter(NSPredicate(format:"id == %@",id))
-                guard !amiToUpdateHunger.isEmpty else {return}
+               let amiToUpdate = localRealm.objects(Ami.self).filter(NSPredicate(format:"id == %@",id))
+                guard !amiToUpdate.isEmpty else {return}
                 
                 try localRealm.write{
-                    amiToUpdateHunger[0].hunger=amiToUpdateHunger[0].hunger+1
+                    if (amiToUpdate[0].hunger + 20 < 100) {
+                        amiToUpdate[0].hunger = amiToUpdate[0].hunger + 20
+                    } else {
+                        amiToUpdate[0].hunger = 100
+                    }
                     getAmis()
-                    print("Updated taks with id \(id)! Current Hunger: \(amiToUpdateHunger[0].hunger)")
+                    print("Current Hunger: \(amiToUpdate[0].hunger)")
+                }
+            }catch{
+                print("Error updating task \(id) to Realm: \(error)")
+            }
+        }
+    }
+    
+    func updateAmiThirst(id:ObjectId){
+        if let localRealm = localRealm {
+            do{
+               let amiToUpdate = localRealm.objects(Ami.self).filter(NSPredicate(format:"id == %@",id))
+                guard !amiToUpdate.isEmpty else {return}
+                
+                try localRealm.write{
+                    if (amiToUpdate[0].thirst + 20 < 100) {
+                        amiToUpdate[0].thirst = amiToUpdate[0].thirst + 20
+                    } else {
+                        amiToUpdate[0].thirst = 100
+                    }
+                    getAmis()
+                    print("Current Thirst: \(amiToUpdate[0].thirst)")
+                }
+            }catch{
+                print("Error updating task \(id) to Realm: \(error)")
+            }
+        }
+    }
+    
+    func increaseAmiHappiness (id:ObjectId){
+        if let localRealm = localRealm {
+            do{
+               let amiToUpdate = localRealm.objects(Ami.self).filter(NSPredicate(format:"id == %@",id))
+                guard !amiToUpdate.isEmpty else {return}
+                
+                try localRealm.write{
+                    if (amiToUpdate[0].happiness + 1 < 100) {
+                        amiToUpdate[0].happiness = amiToUpdate[0].happiness + 1
+                    } else {
+                        amiToUpdate[0].happiness = 100
+                    }
+                    getAmis()
+                    print("Current Happiness: \(amiToUpdate[0].happiness)")
                 }
             }catch{
                 print("Error updating task \(id) to Realm: \(error)")
@@ -85,13 +132,68 @@ class RealmManager: ObservableObject {
     func decreaseAmiHunger(id:ObjectId){
            if let localRealm = localRealm {
                do{
-                  let amiToUpdateHunger = localRealm.objects(Ami.self).filter(NSPredicate(format:"id == %@",id))
-                   guard !amiToUpdateHunger.isEmpty else {return}
+                  let amiToUpdate = localRealm.objects(Ami.self).filter(NSPredicate(format:"id == %@",id))
+                   guard !amiToUpdate.isEmpty else {return}
+                   
+                   try localRealm.write {
+                       amiToUpdate[0].hunger = amiToUpdate[0].hunger - 1
+                       getAmis()
+                       print("Current Hunger: \(amiToUpdate[0].hunger)")
+                   }
+               }catch{
+                   print("Error updating task \(id) to Realm: \(error)")
+               }
+           }
+       }
+    
+    func decreaseAmiThirst(id:ObjectId){
+           if let localRealm = localRealm {
+               do{
+                  let amiToUpdate = localRealm.objects(Ami.self).filter(NSPredicate(format:"id == %@",id))
+                   guard !amiToUpdate.isEmpty else {return}
                    
                    try localRealm.write{
-                       amiToUpdateHunger[0].hunger=amiToUpdateHunger[0].hunger-1
+                       amiToUpdate[0].thirst = amiToUpdate[0].thirst - 1
                        getAmis()
-                       print("Updated taks with id \(id)! Current Hunger: \(amiToUpdateHunger[0].hunger)")
+                       print("Current Thirst: \(amiToUpdate[0].thirst)")
+                   }
+               }catch{
+                   print("Error updating task \(id) to Realm: \(error)")
+               }
+           }
+       }
+    
+    func decreaseAmiHappiness(id:ObjectId){
+           if let localRealm = localRealm {
+               do{
+                  let amiToUpdate = localRealm.objects(Ami.self).filter(NSPredicate(format:"id == %@",id))
+                   guard !amiToUpdate.isEmpty else {return}
+                   
+                   try localRealm.write{
+                       if (amiToUpdate[0].happiness < 0) {
+                           amiToUpdate[0].happiness = 0
+                       } else {
+                           amiToUpdate[0].happiness = amiToUpdate[0].happiness - 1
+                       }
+                       getAmis()
+                       print("Current Happiness: \(amiToUpdate[0].happiness)")
+                   }
+               }catch{
+                   print("Error updating task \(id) to Realm: \(error)")
+               }
+           }
+       }
+    
+    func decreaseAmiEnergy(id:ObjectId){
+           if let localRealm = localRealm {
+               do{
+                  let amiToUpdate = localRealm.objects(Ami.self).filter(NSPredicate(format:"id == %@",id))
+                   guard !amiToUpdate.isEmpty else {return}
+                   
+                   try localRealm.write{
+                       amiToUpdate[0].energy = amiToUpdate[0].energy - 1
+                       getAmis()
+                       print("Current Happiness: \(amiToUpdate[0].energy)")
                    }
                }catch{
                    print("Error updating task \(id) to Realm: \(error)")

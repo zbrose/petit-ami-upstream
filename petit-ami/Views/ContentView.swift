@@ -12,8 +12,8 @@ struct ContentView: View {
     @State private var showNameAmiView = false
     
     var body: some View {
-        VStack{
-          ButtonBar()
+       
+        (realmManager.amis.count > 0 ? AnyView(ButtonBar()) : AnyView(NameAmiView().environmentObject(realmManager)))
 //            List {
 //                ForEach(realmManager.amis, id: \.id) { ami in
 //                    if !ami.isInvalidated {
@@ -28,7 +28,7 @@ struct ContentView: View {
 //                    showNameAmiView.toggle()
 //                    
 //                }
-        }
+    
         
         .sheet(isPresented: $showNameAmiView) {
             NameAmiView()
