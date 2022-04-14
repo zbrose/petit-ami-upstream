@@ -114,12 +114,13 @@ struct ButtonBar: View {
                     hungerRemaining += 20
                     realmManager.updateAmiHunger(id:realmManager.amis[0].id)
                 }
-            
+         
             SleepButton(sleepState: .constant(sleepState))
                 .onTapGesture {
                     sleepState.toggle()
                     print(sleepState)
                 }
+
             
             DrinkButton()
                 .onTapGesture {
@@ -131,15 +132,11 @@ struct ButtonBar: View {
                 .onTapGesture {
                     print("Pet")
                 }
-                    
-                    
+            
                 }
                 .environmentObject(realmManager)
             
 //            Text("\(Showhunger)")
-            
-           
-            
         }
     }
     }
