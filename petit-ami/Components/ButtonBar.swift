@@ -18,6 +18,8 @@ struct GaugeProgressStyle: ProgressViewStyle {
                 .trim(from: 0, to: CGFloat(fractionCompleted))
                 .stroke(strokeColor, style: StrokeStyle(lineWidth: CGFloat(strokeWidth), lineCap: .round))
                 .rotationEffect(.degrees(-90))
+            Image(systemName: "pills")
+                .font(.system(size: 10.0, weight: .bold))
         }
     }
 }
@@ -26,7 +28,7 @@ struct ButtonBar: View {
     @StateObject var realmManager = RealmManager()
     @State private var showNameAmiView = false
     @State var hungerRemaining = RealmManager().amis[0].hunger
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: 100, on: .main, in: .common).autoconnect()
    
     var body: some View {
         let hungerPercent = Float(hungerRemaining)/100
@@ -59,15 +61,15 @@ struct ButtonBar: View {
                         .frame(width: .infinity,  alignment: .top)
                         .font(.system(size: 10, weight: .bold, design: .default))
                 }
-                ProgressView(value: hungerPercent)
-                    .progressViewStyle(GaugeProgressStyle())
-                    .frame(width: 20, height: 20)
-                                .contentShape(Rectangle())
+                
                 VStack{
                     Text("Thirst:\(realmManager.amis[0].thirst)")
                         .frame(width: .infinity,  alignment: .top)
                         .font(.system(size: 10, weight: .bold, design: .default))
-                    Text("Hunger: \(hungerRemaining)")
+                    ProgressView(value: hungerPercent)
+                        .progressViewStyle(GaugeProgressStyle())
+                        .frame(width: 20, height: 20)
+                                    .contentShape(Rectangle())
                         .onReceive(timer) { _ in
                             if hungerRemaining > 0 {
                                 hungerRemaining -= 1
@@ -83,19 +85,18 @@ struct ButtonBar: View {
             }
         HStack{
             
-            
+
             FeedButton()
                 .onTapGesture {
-                    print("The Ami is fed")
-                    realmManager.updateAmiHunger(id:realmManager.amis[0].id)
-                    hungerRemaining += 1
-                    print("The Fake hunger is \(realmManager.amis[0].hunger)")
-                    
+                    if hungerRemaining < 100 {
+                        realmManager.updateAmiHunger(id:realmManager.amis[0].id)
+                        hungerRemaining += 20
+                        print("The Fake hunger is \(realmManager.amis[0].hunger)")
+                    }else{
+                        hungerRemaining = 100
+                        print("MAX HUNGER REACHED")
+                    }
                 }
-                .environmentObject(realmManager)
-            
-//            Text("\(Showhunger)")
-            
             SleepButton()
                 .onTapGesture {
                     print("Sleep")
@@ -110,11 +111,19 @@ struct ButtonBar: View {
                 .onTapGesture {
                     print("Pet")
                 }
+                    
+                    
+                }
+                .environmentObject(realmManager)
+            
+//            Text("\(Showhunger)")
+            
+           
             
         }
     }
     }
-}
+
 
 struct ButtonBar_Previews: PreviewProvider {
     static var previews: some View {
