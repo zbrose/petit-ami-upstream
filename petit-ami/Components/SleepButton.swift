@@ -18,7 +18,7 @@ struct SleepButton: View {
                 .foregroundColor(sleepState == false ? Color(hue: 0.000, saturation: 0.000, brightness: 0.908) : Color(hue: 0.900, saturation: 0.900, brightness: 0.108))
             
             Circle() // Our button
-                .fill(Color(.gray))
+                .fill(Color(sleepState == false ? .gray : .white))
                             .frame(width: 50, height: 50)
                             .shadow(color: .black.opacity(0.3), radius: 0, x: 0, y: 8)
                             .overlay(
@@ -34,7 +34,7 @@ struct SleepButton: View {
             
 
             
-            Image("SleepW")
+            Image(sleepState == false ? "SleepW" : "Sleep")
                 .resizable()
                 .padding()
                 .frame(width: 70, height: 70)
