@@ -81,4 +81,21 @@ class RealmManager: ObservableObject {
             }
         }
     }
+    
+    func decreaseAmiHunger(id:ObjectId){
+           if let localRealm = localRealm {
+               do{
+                  let amiToUpdateHunger = localRealm.objects(Ami.self).filter(NSPredicate(format:"id == %@",id))
+                   guard !amiToUpdateHunger.isEmpty else {return}
+                   
+                   try localRealm.write{
+                       amiToUpdateHunger[0].hunger=amiToUpdateHunger[0].hunger-1
+                       getAmis()
+                       print("Updated taks with id \(id)! Current Hunger: \(amiToUpdateHunger[0].hunger)")
+                   }
+               }catch{
+                   print("Error updating task \(id) to Realm: \(error)")
+               }
+           }
+       }
 }
