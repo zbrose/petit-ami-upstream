@@ -11,10 +11,13 @@ struct ContentView: View {
     @StateObject var realmManager = RealmManager()
     @State private var showNameAmiView = false
     
+    
     var body: some View {
         VStack{
-            PetInfo()
+          PetInfo()
                 Spacer()
+                .environmentObject(RealmManager())
+            
           PlayArea()
                 .padding(.bottom,200)
             

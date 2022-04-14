@@ -11,10 +11,15 @@ struct PetInfo: View {
     @StateObject var realmManager = RealmManager()
     var body: some View {
         VStack{
+            
+            var ButtonInfo = ButtonBar()
+            
             Text("\(realmManager.amis[0].name)")
                 .font(.system(size: 30, weight: .bold, design: .default))
+//            print("\(ButtonInfo)")
         HStack{
             VStack{
+                
                 Text("Age: \(realmManager.amis[0].age)/\(realmManager.amis[0].lifeStage)")
                     .frame(width: .infinity,  alignment: .top)
                     .font(.system(size: 10, weight: .bold, design: .default))
@@ -32,7 +37,7 @@ struct PetInfo: View {
                 Text("Thirst:\(realmManager.amis[0].thirst)")
                     .frame(width: .infinity,  alignment: .top)
                     .font(.system(size: 10, weight: .bold, design: .default))
-                Text("Hunger: \(String(realmManager.amis[0].hunger))")
+                Text("Hunger: \(realmManager.amis[0].thirst))")
                     .frame(width: .infinity,  alignment: .top)
                     .font(.system(size: 10, weight: .bold, design: .default))
                     .onAppear()
