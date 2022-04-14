@@ -10,15 +10,25 @@ import SwiftUI
 struct ButtonBar: View {
     @StateObject var realmManager = RealmManager()
     @State private var showNameAmiView = false
+    
     var body: some View {
         HStack{
-         
+            
+            
+            var Showhunger = realmManager.amis[0].hunger
+           
+            
             FeedButton()
                 .onTapGesture {
                     print("The Ami is fed")
                     realmManager.updateAmiHunger(id:realmManager.amis[0].id)
+                    Showhunger+=1
+                    print("The Fake hunger is \(Showhunger)")
+                    
                 }
                 .environmentObject(realmManager)
+            
+            Text("\(Showhunger)")
             
             SleepButton()
                 .onTapGesture {
@@ -46,3 +56,4 @@ struct ButtonBar_Previews: PreviewProvider {
             
     }
 }
+
