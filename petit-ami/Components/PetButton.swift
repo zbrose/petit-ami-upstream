@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct PetButton: View {
+    
     var body: some View {
         ZStack {
             Circle()

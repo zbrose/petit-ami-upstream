@@ -11,17 +11,9 @@ struct ContentView: View {
     @StateObject var realmManager = RealmManager()
     @State private var showNameAmiView = false
     
-    
     var body: some View {
         VStack{
-          PetInfo()
-                Spacer()
-                .environmentObject(RealmManager())
-            
-          PlayArea()
-                .padding(.bottom,200)
-            
-        
+
           ButtonBar()
 //            List {
 //                ForEach(realmManager.amis, id: \.id) { ami in
@@ -32,11 +24,11 @@ struct ContentView: View {
 //            }
 //
             
-            CreateAmi()
-                .onTapGesture{
-                    showNameAmiView.toggle()
-                    
-                }
+//            CreateAmi()
+//                .onTapGesture{
+//                    showNameAmiView.toggle()
+//                    
+//                }
         }
         
         .sheet(isPresented: $showNameAmiView) {
