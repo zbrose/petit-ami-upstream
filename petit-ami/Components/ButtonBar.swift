@@ -28,10 +28,13 @@ struct ButtonBar: View {
     @StateObject var realmManager = RealmManager()
     @State private var showNameAmiView = false
     @State var hungerRemaining = RealmManager().amis[0].hunger
-    let timer = Timer.publish(every: 100, on: .main, in: .common).autoconnect()
+    @State var thirstRemaining = RealmManager().amis[0].thirst
+    @State var happinessRemaining = RealmManager().amis[0].happiness
+    @State var energyRemaining = RealmManager().amis[0].energy
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    let energyTimer = Timer.publish(every: 100, on: .main, in: .common).autoconnect()
    
     var body: some View {
-        let hungerPercent = Float(hungerRemaining)/100
         VStack{
             Image("Still-1")
                 .resizable()
@@ -49,24 +52,42 @@ struct ButtonBar: View {
                 VStack{
                     
                     Text("Age: \(realmManager.amis[0].age)/\(realmManager.amis[0].lifeStage)")
-                        .frame(width: .infinity,  alignment: .top)
                         .font(.system(size: 10, weight: .bold, design: .default))
+                    
                     Text("Energy: \(String(realmManager.amis[0].energy))")
-                        .frame(width: .infinity,  alignment: .top)
                         .font(.system(size: 10, weight: .bold, design: .default))
+                        .onReceive(energyTimer) { _ in
+                            if energyRemaining > 0 {
+                                energyRemaining -= 1
+                                realmManager.decreaseAmiEnergy(id: realmManager.amis[0].id)
+                            }
+                        }
                 }
                 VStack{
             
                     Text("Happiness: \(String(realmManager.amis[0].happiness))")
-                        .frame(width: .infinity,  alignment: .top)
+                        .onReceive(timer) { _ in
+                            if (thirstRemaining < 50 || hungerRemaining < 50 && happinessRemaining > 0) {
+                                happinessRemaining -= 1
+                                realmManager.decreaseAmiHappiness(id: realmManager.amis[0].id)
+                            } else if (happinessRemaining < 100) {
+                                happinessRemaining += 1
+                                realmManager.increaseAmiHappiness(id: realmManager.amis[0].id)
+                            }
+                        }
                         .font(.system(size: 10, weight: .bold, design: .default))
                 }
                 
                 VStack{
                     Text("Thirst:\(realmManager.amis[0].thirst)")
-                        .frame(width: .infinity,  alignment: .top)
                         .font(.system(size: 10, weight: .bold, design: .default))
-                    ProgressView(value: hungerPercent)
+                        .onReceive(timer) { _ in
+                            if thirstRemaining > 0 {
+                                thirstRemaining -= 1
+                                realmManager.decreaseAmiThirst(id: realmManager.amis[0].id)
+                            }
+                        }
+                    ProgressView(value: Float(hungerRemaining)/100)
                         .progressViewStyle(GaugeProgressStyle())
                         .frame(width: 20, height: 20)
                                     .contentShape(Rectangle())
@@ -76,7 +97,6 @@ struct ButtonBar: View {
                                 realmManager.decreaseAmiHunger(id: realmManager.amis[0].id)
                             }
                         }
-                        .frame(width: .infinity,  alignment: .top)
                         .font(.system(size: 10, weight: .bold, design: .default))
                         .onAppear()
                 }
@@ -88,14 +108,8 @@ struct ButtonBar: View {
 
             FeedButton()
                 .onTapGesture {
-                    if hungerRemaining < 100 {
-                        realmManager.updateAmiHunger(id:realmManager.amis[0].id)
-                        hungerRemaining += 20
-                        print("The Fake hunger is \(realmManager.amis[0].hunger)")
-                    }else{
-                        hungerRemaining = 100
-                        print("MAX HUNGER REACHED")
-                    }
+                    hungerRemaining += 20
+                    realmManager.updateAmiHunger(id:realmManager.amis[0].id)
                 }
             SleepButton()
                 .onTapGesture {
@@ -104,7 +118,8 @@ struct ButtonBar: View {
             
             DrinkButton()
                 .onTapGesture {
-                    print("Drink")
+                    thirstRemaining += 20
+                    realmManager.updateAmiThirst(id:realmManager.amis[0].id)
                 }
             
             PetButton()
