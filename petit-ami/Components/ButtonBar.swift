@@ -18,8 +18,10 @@ struct GaugeProgressStyle: ProgressViewStyle {
                 .trim(from: 0, to: CGFloat(fractionCompleted))
                 .stroke(strokeColor, style: StrokeStyle(lineWidth: CGFloat(strokeWidth), lineCap: .round))
                 .rotationEffect(.degrees(-90))
-            Image(systemName: "pills")
-                .font(.system(size: 10.0, weight: .bold))
+            Image("pizza")
+                .resizable()
+                .padding(1.5)
+                .frame(width: 20, height: 20)
         }
     }
 }
