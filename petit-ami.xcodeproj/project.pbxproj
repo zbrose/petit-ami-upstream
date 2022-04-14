@@ -24,6 +24,7 @@
 		B778043B28061F62009E9FD1 /* SleepButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B778043A28061F62009E9FD1 /* SleepButton.swift */; };
 		B778043D28061F73009E9FD1 /* DrinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B778043C28061F73009E9FD1 /* DrinkButton.swift */; };
 		B778043F28061F8A009E9FD1 /* PetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B778043E28061F8A009E9FD1 /* PetButton.swift */; };
+		B7A354462808D7B5006067D9 /* InstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A354452808D7B5006067D9 /* InstructionsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		B778043A28061F62009E9FD1 /* SleepButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepButton.swift; sourceTree = "<group>"; };
 		B778043C28061F73009E9FD1 /* DrinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkButton.swift; sourceTree = "<group>"; };
 		B778043E28061F8A009E9FD1 /* PetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetButton.swift; sourceTree = "<group>"; };
+		B7A354452808D7B5006067D9 /* InstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			children = (
 				B76B70512805E45300CA1DAD /* ContentView.swift */,
 				1A14F146280633B8001CA26E /* NameAmiView.swift */,
+				B7A354452808D7B5006067D9 /* InstructionsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				1A14F143280631EA001CA26E /* Ami.swift in Sources */,
 				B76B70522805E45300CA1DAD /* ContentView.swift in Sources */,
 				1A14F1452806336E001CA26E /* RealmManager.swift in Sources */,
+				B7A354462808D7B5006067D9 /* InstructionsView.swift in Sources */,
 				B76B70502805E45300CA1DAD /* petit_amiApp.swift in Sources */,
 				B778043928061F59009E9FD1 /* FeedButton.swift in Sources */,
 				B778043F28061F8A009E9FD1 /* PetButton.swift in Sources */,

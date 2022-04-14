@@ -39,6 +39,9 @@ struct ButtonBar: View {
    
     var body: some View {
         VStack{
+            
+        
+            
             Image("Still-1")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
