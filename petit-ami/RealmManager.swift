@@ -170,7 +170,11 @@ class RealmManager: ObservableObject {
                    guard !amiToUpdate.isEmpty else {return}
                    
                    try localRealm.write{
-                       amiToUpdate[0].happiness = amiToUpdate[0].happiness - 1
+                       if (amiToUpdate[0].happiness < 0) {
+                           amiToUpdate[0].happiness = 0
+                       } else {
+                           amiToUpdate[0].happiness = amiToUpdate[0].happiness - 1
+                       }
                        getAmis()
                        print("Current Happiness: \(amiToUpdate[0].happiness)")
                    }
