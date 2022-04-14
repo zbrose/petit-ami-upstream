@@ -10,9 +10,11 @@ import SwiftUI
 struct ButtonBar: View {
     @StateObject var realmManager = RealmManager()
     @State private var showNameAmiView = false
+    @State var hungerRemaining = RealmManager().amis[0].hunger
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
     var body: some View {
         VStack{
-            var Showhunger = realmManager.amis[0].hunger
             Image("Still-1")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -45,7 +47,13 @@ struct ButtonBar: View {
                     Text("Thirst:\(realmManager.amis[0].thirst)")
                         .frame(width: .infinity,  alignment: .top)
                         .font(.system(size: 10, weight: .bold, design: .default))
-                    Text("Hunger: \(Showhunger)")
+                    Text("Hunger: \(hungerRemaining)")
+                        .onReceive(timer) { _ in
+                            if hungerRemaining > 0 {
+                                hungerRemaining -= 1
+                                realmManager.decreaseAmiHunger(id: realmManager.amis[0].id)
+                            }
+                        }
                         .frame(width: .infinity,  alignment: .top)
                         .font(.system(size: 10, weight: .bold, design: .default))
                         .onAppear()
@@ -60,8 +68,8 @@ struct ButtonBar: View {
                 .onTapGesture {
                     print("The Ami is fed")
                     realmManager.updateAmiHunger(id:realmManager.amis[0].id)
-                    Showhunger+=1
-                    print("The Fake hunger is \(Showhunger)")
+                    hungerRemaining += 1
+                    print("The Fake hunger is \(realmManager.amis[0].hunger)")
                     
                 }
                 .environmentObject(realmManager)
