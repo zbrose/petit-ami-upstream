@@ -6,14 +6,30 @@
 //
 
 import SwiftUI
+struct GaugeProgressStyle: ProgressViewStyle {
+    var strokeColor = Color.red
+    var strokeWidth = 2.0
+
+    func makeBody(configuration: Configuration) -> some View {
+        let fractionCompleted = configuration.fractionCompleted ?? 0
+
+        return ZStack {
+            Circle()
+                .trim(from: 0, to: CGFloat(fractionCompleted))
+                .stroke(strokeColor, style: StrokeStyle(lineWidth: CGFloat(strokeWidth), lineCap: .round))
+                .rotationEffect(.degrees(-90))
+        }
+    }
+}
 
 struct ButtonBar: View {
     @StateObject var realmManager = RealmManager()
     @State private var showNameAmiView = false
     @State var hungerRemaining = RealmManager().amis[0].hunger
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
+   
     var body: some View {
+        let hungerPercent = Float(hungerRemaining)/100
         VStack{
             Image("Still-1")
                 .resizable()
@@ -43,6 +59,10 @@ struct ButtonBar: View {
                         .frame(width: .infinity,  alignment: .top)
                         .font(.system(size: 10, weight: .bold, design: .default))
                 }
+                ProgressView(value: hungerPercent)
+                    .progressViewStyle(GaugeProgressStyle())
+                    .frame(width: 20, height: 20)
+                                .contentShape(Rectangle())
                 VStack{
                     Text("Thirst:\(realmManager.amis[0].thirst)")
                         .frame(width: .infinity,  alignment: .top)
