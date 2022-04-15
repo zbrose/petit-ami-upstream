@@ -32,7 +32,7 @@ struct ButtonBar: View {
     @State var hungerRemaining = RealmManager().amis[0].hunger
     @State var thirstRemaining = RealmManager().amis[0].thirst
     @State var happinessRemaining = RealmManager().amis[0].happiness
-    @State var energyRemaining = RealmManager().amis[0].energy
+    @State var energyRemaining = Double(RealmManager().amis[0].energy)
     @State public var sleepState: Bool = false
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     let energyTimer = Timer.publish(every: 100, on: .main, in: .common).autoconnect()
@@ -62,8 +62,11 @@ struct ButtonBar: View {
                     Text("Energy: \(String(realmManager.amis[0].energy))")
                         .font(.system(size: 10, weight: .bold, design: .default))
                         .onReceive(energyTimer) { _ in
-                            if energyRemaining > 0 {
-                                energyRemaining -= 1
+                            if (sleepState == true && energyRemaining < 100) {
+                                energyRemaining += 1
+                                realmManager.increaseAmiEnergy(id: realmManager.amis[0].id)
+                            } else if (energyRemaining > 0) {
+                                energyRemaining -= 0.1
                                 realmManager.decreaseAmiEnergy(id: realmManager.amis[0].id)
                             }
                         }
@@ -75,7 +78,7 @@ struct ButtonBar: View {
                             if ((thirstRemaining < 50 || hungerRemaining < 50) && happinessRemaining > 0) {
                                 happinessRemaining -= 1
                                 realmManager.decreaseAmiHappiness(id: realmManager.amis[0].id)
-                            } else if ((thirstRemaining >= 50 || hungerRemaining >= 50) && happinessRemaining < 100) {
+                            } else if ((thirstRemaining >= 50 && hungerRemaining >= 50) && happinessRemaining < 100) {
                                 happinessRemaining += 1
                                 realmManager.increaseAmiHappiness(id: realmManager.amis[0].id)
                             }
@@ -113,20 +116,28 @@ struct ButtonBar: View {
 
             FeedButton()
                 .onTapGesture {
-                    hungerRemaining += 20
+                    if (hungerRemaining + 20 < 100) {
+                        hungerRemaining += 20
+                    } else {
+                        hungerRemaining = 100
+                    }
                     realmManager.updateAmiHunger(id:realmManager.amis[0].id)
                 }
          
             SleepButton(sleepState: .constant(sleepState))
                 .onTapGesture {
                     sleepState.toggle()
-                    print(sleepState)
+                    print(energyRemaining)
                 }
 
             
             DrinkButton()
                 .onTapGesture {
-                    thirstRemaining += 20
+                    if (thirstRemaining + 20 < 100) {
+                        thirstRemaining += 20
+                    } else {
+                        thirstRemaining = 100
+                    }
                     realmManager.updateAmiThirst(id:realmManager.amis[0].id)
                 }
             
