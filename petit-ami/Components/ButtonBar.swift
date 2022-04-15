@@ -107,10 +107,10 @@ struct ButtonBar: View {
                         .frame(width: 20, height: 20)
                                     .contentShape(Rectangle())
                         .onReceive(timer) { _ in
-                            if (sleepState == true && energyRemaining < 100) {
+                            if (sleepState == true && energyRemaining + 1 < 100) {
                                 energyRemaining += 1
                                 realmManager.increaseAmiEnergy(id: realmManager.amis[0].id)
-                            } else if (sleepState == false && energyRemaining > 0) {
+                            } else if (sleepState == false && energyRemaining - 0.2 > 0) {
                                 energyRemaining -= 0.2
                                 realmManager.decreaseAmiEnergy(id: realmManager.amis[0].id)
                             }
