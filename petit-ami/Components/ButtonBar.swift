@@ -109,6 +109,7 @@ struct ButtonBar: View {
     @State public var sleepState: Bool = false
     @State var shownImage = "BabyCrack"
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    let timerThree = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
     let energyTimer = Timer.publish(every: 100, on: .main, in: .common).autoconnect()
    
     func daysSince(date: Date) -> Int {
@@ -224,7 +225,7 @@ struct ButtonBar: View {
                     GifImage("HeartEgg")
                         .frame(width:500,height: 500)
                         .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
-                        .onReceive(timer) { _ in
+                        .onReceive(timerThree) { _ in
 //                            Image("Still-1")
 //                              .resizable()
 //                              .aspectRatio(contentMode: .fit)
@@ -237,6 +238,13 @@ struct ButtonBar: View {
                     GifImage("EggEating")
                         .frame(width:500,height: 500)
                         .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+                        .onReceive(timerThree) { _ in
+//                            Image("Still-1")
+//                              .resizable()
+//                              .aspectRatio(contentMode: .fit)
+//                              .padding(.all)
+//                              .frame(width: 375.0, height: 450.0, alignment: .top)
+                            shownImage = "Still"}
                 }else if(hygieneRemaining < 20 ) {
                     GifImage("poopEgg")
                         .frame(width:500,height: 500)
