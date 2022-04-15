@@ -32,7 +32,7 @@ struct InstructionsView: View {
             HStack{
                 Text("Press")
                 PetButton()
-                Text(" to pet your Ami.")
+                Text("to pet your Ami.")
             }
             HStack{
                 Text("Press")
