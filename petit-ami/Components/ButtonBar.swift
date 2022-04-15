@@ -21,7 +21,7 @@ struct HungerGaugeProgressStyle: ProgressViewStyle {
             Image("pizza")
                 .resizable()
                 .padding(1.5)
-                .frame(width: 20, height: 20)
+                .frame(width: 50, height: 50)
         }
         
         
@@ -44,7 +44,7 @@ struct EnergyGaugeProgressStyle: ProgressViewStyle {
             Image("Bolt")
                 .resizable()
                 .padding(1.5)
-                .frame(width: 20, height: 20)
+                .frame(width: 40, height: 40)
         }
         
         
@@ -67,7 +67,7 @@ struct HappinessGaugeProgressStyle: ProgressViewStyle {
             Image("Happy")
                 .resizable()
                 .padding(1.5)
-                .frame(width: 20, height: 20)
+                .frame(width: 50, height: 50)
         }
         
         
@@ -90,7 +90,7 @@ struct HygieneGaugeProgressStyle: ProgressViewStyle {
             Image("Stink")
                 .resizable()
                 .padding(1.5)
-                .frame(width: 20, height: 20)
+                .frame(width: 50, height: 50)
         }
         
         
@@ -143,6 +143,63 @@ struct ButtonBar: View {
                 InstructionsView()
             }
             Spacer()
+            HStack{
+                ProgressView(value: Float(energyRemaining)/100)
+                    .progressViewStyle(EnergyGaugeProgressStyle())
+                    .frame(width: 50, height: 50)
+                                .contentShape(Rectangle())
+                    .onReceive(timer) { _ in
+                        if (sleepState == true && energyRemaining + 1 < 100) {
+                            energyRemaining += 1
+                            realmManager.increaseAmiEnergy(id: realmManager.amis[0].id)
+                        } else if (sleepState == false && energyRemaining - 0.2 > 0) {
+                            energyRemaining -= 0.2
+                            realmManager.decreaseAmiEnergy(id: realmManager.amis[0].id)
+                        }
+                    }
+                    .font(.system(size: 10, weight: .bold, design: .default))
+                    .onAppear()
+                    .padding()
+                ProgressView(value: Float(hygieneRemaining)/100)
+                    .progressViewStyle(HygieneGaugeProgressStyle())
+                    .frame(width: 50, height: 50)
+                                .contentShape(Rectangle())
+                    .onReceive(timer) { _ in
+                        if hygieneRemaining > 0 {
+                            hygieneRemaining -= 1
+                            realmManager.decreaseAmiThirst(id: realmManager.amis[0].id)
+                        }
+                    }
+                    .padding()
+                ProgressView(value: Float(happinessRemaining)/100)
+                    .progressViewStyle(HappinessGaugeProgressStyle())
+                    .frame(width: 50, height: 50)
+                                .contentShape(Rectangle())
+                    .onReceive(timer) { _ in
+                        if ((hygieneRemaining < 50 || hungerRemaining < 50) && happinessRemaining > 0) {
+                            happinessRemaining -= 1
+                            realmManager.decreaseAmiHappiness(id: realmManager.amis[0].id)
+                        } else if ((hygieneRemaining >= 50 && hungerRemaining >= 50) && happinessRemaining < 100) {
+                            happinessRemaining += 1
+                            realmManager.increaseAmiHappiness(id: realmManager.amis[0].id)
+                        }
+                    }
+                    .padding()
+                ProgressView(value: Float(hungerRemaining)/100)
+                    .progressViewStyle(HungerGaugeProgressStyle())
+                    .frame(width: 50, height: 50)
+                                .contentShape(Rectangle())
+                    .onReceive(timer) { _ in
+                        if hungerRemaining > 0 {
+                            hungerRemaining -= 1
+                            realmManager.decreaseAmiHunger(id: realmManager.amis[0].id)
+                        }
+                    }
+                    .onAppear()
+                    .padding()
+                
+            }
+            
             GifImage("RotateLeft")
                 .frame(width:500,height: 500)
                 .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
@@ -162,67 +219,8 @@ struct ButtonBar: View {
                     
                     Text("Age: \(amiAge) d / \(lifeStage(int: amiAge))")
                         .font(.system(size: 10, weight: .bold, design: .default))
-                    
-                    ProgressView(value: Float(energyRemaining)/100)
-                        .progressViewStyle(EnergyGaugeProgressStyle())
-                        .frame(width: 20, height: 20)
-                                    .contentShape(Rectangle())
-                        .onReceive(timer) { _ in
-                            if (sleepState == true && energyRemaining + 1 < 100) {
-                                energyRemaining += 1
-                                realmManager.increaseAmiEnergy(id: realmManager.amis[0].id)
-                            } else if (sleepState == false && energyRemaining - 0.2 > 0) {
-                                energyRemaining -= 0.2
-                                realmManager.decreaseAmiEnergy(id: realmManager.amis[0].id)
-                            }
-                        }
-                        .font(.system(size: 10, weight: .bold, design: .default))
-                        .onAppear()
                 }
-                
-                VStack{
             
-                    ProgressView(value: Float(happinessRemaining)/100)
-                        .progressViewStyle(HappinessGaugeProgressStyle())
-                        .frame(width: 20, height: 20)
-                                    .contentShape(Rectangle())
-                        .onReceive(timer) { _ in
-                            if ((hygieneRemaining < 50 || hungerRemaining < 50) && happinessRemaining > 0) {
-                                happinessRemaining -= 1
-                                realmManager.decreaseAmiHappiness(id: realmManager.amis[0].id)
-                            } else if ((hygieneRemaining >= 50 && hungerRemaining >= 50) && happinessRemaining < 100) {
-                                happinessRemaining += 1
-                                realmManager.increaseAmiHappiness(id: realmManager.amis[0].id)
-                            }
-                        }
-                        .font(.system(size: 10, weight: .bold, design: .default))
-                }
-                
-                VStack{
-//                    Text("Hygiene:\(realmManager.amis[0].hygiene)")
-                    ProgressView(value: Float(hygieneRemaining)/100)
-                        .progressViewStyle(HygieneGaugeProgressStyle())
-                        .frame(width: 20, height: 20)
-                                    .contentShape(Rectangle())
-                        .onReceive(timer) { _ in
-                            if hygieneRemaining > 0 {
-                                hygieneRemaining -= 1
-                                realmManager.decreaseAmiThirst(id: realmManager.amis[0].id)
-                            }
-                        }
-                    ProgressView(value: Float(hungerRemaining)/100)
-                        .progressViewStyle(HungerGaugeProgressStyle())
-                        .frame(width: 20, height: 20)
-                                    .contentShape(Rectangle())
-                        .onReceive(timer) { _ in
-                            if hungerRemaining > 0 {
-                                hungerRemaining -= 1
-                                realmManager.decreaseAmiHunger(id: realmManager.amis[0].id)
-                            }
-                        }
-                        .font(.system(size: 10, weight: .bold, design: .default))
-                        .onAppear()
-                }
             }
                 
             }
