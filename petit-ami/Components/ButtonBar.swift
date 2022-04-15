@@ -107,6 +107,7 @@ struct ButtonBar: View {
     @State var energyRemaining = Double(RealmManager().amis[0].energy)
     @State private var showInstructions = false
     @State public var sleepState: Bool = false
+    @State var shownImage = "BabyCrack"
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     let energyTimer = Timer.publish(every: 100, on: .main, in: .common).autoconnect()
    
@@ -143,6 +144,21 @@ struct ButtonBar: View {
                 InstructionsView()
             }
             Spacer()
+            VStack{
+                
+                Text("\(realmManager.amis[0].name)")
+                    .font(.system(size: 30, weight: .bold, design: .default))
+    //            print("\(ButtonInfo)")
+            HStack{
+                VStack{
+                    
+                    Text("Age: \(amiAge) d / \(lifeStage(int: 0))")
+                        .font(.system(size: 10, weight: .bold, design: .default))
+                }
+            
+            }
+                
+            }
             HStack{
                 ProgressView(value: Float(energyRemaining)/100)
                     .progressViewStyle(EnergyGaugeProgressStyle())
@@ -199,31 +215,45 @@ struct ButtonBar: View {
                     .padding()
                 
             }
-            
-            GifImage("RotateLeft")
-                .frame(width:500,height: 500)
-                .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
-          
-//            Image("Still-1")
+    
+                if(sleepState == true) {
+                    GifImage("SleepingEgg")
+                        .frame(width:500,height: 500)
+                        .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+                } else if shownImage == "HeartEgg"{
+                    GifImage("HeartEgg")
+                        .frame(width:500,height: 500)
+                        .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+                        .onReceive(timer) { _ in
+//                            Image("Still-1")
+//                              .resizable()
+//                              .aspectRatio(contentMode: .fit)
+//                              .padding(.all)
+//                              .frame(width: 375.0, height: 450.0, alignment: .top)
+                            shownImage = "Still"
+                            
+                            }
+                } else if(shownImage == "EggEating") {
+                    GifImage("EggEating")
+                        .frame(width:500,height: 500)
+                        .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+                }else{
+                    GifImage("Still")
+                        .frame(width:500,height: 500)
+                        .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+                  
+                }
+           
+           
+//            GifImage(shownImage)
+//                .frame(width:500,height: 500)
+//                .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+//            Image("Baby")
 //                .resizable()
 //                .aspectRatio(contentMode: .fit)
 //                .padding(.all)
 //                .frame(width: 375.0, height: 450.0, alignment: .top)
-            VStack{
-                
-                Text("\(realmManager.amis[0].name)")
-                    .font(.system(size: 30, weight: .bold, design: .default))
-    //            print("\(ButtonInfo)")
-            HStack{
-                VStack{
-                    
-                    Text("Age: \(amiAge) d / \(lifeStage(int: amiAge))")
-                        .font(.system(size: 10, weight: .bold, design: .default))
-                }
-            
-            }
-                
-            }
+           
         HStack{
             
 
@@ -234,6 +264,8 @@ struct ButtonBar: View {
                     } else if (hungerRemaining + 20 < 100) {
                         hungerRemaining += 20
                         realmManager.updateAmiHunger(id:realmManager.amis[0].id)
+                        shownImage = "EggEating"
+                        print(shownImage)
                     } else {
                         hungerRemaining = 100
                         realmManager.updateAmiHunger(id:realmManager.amis[0].id)
@@ -266,6 +298,8 @@ struct ButtonBar: View {
                         print("Sleeping")
                     } else {
                         print("Pet")
+                        shownImage = "HeartEgg"
+                        print(shownImage)
                     }
                 }
             
