@@ -11,9 +11,9 @@
 		1A14F1452806336E001CA26E /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A14F1442806336E001CA26E /* RealmManager.swift */; };
 		1A14F147280633B8001CA26E /* NameAmiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A14F146280633B8001CA26E /* NameAmiView.swift */; };
 		1A14F14928074602001CA26E /* CreateAmi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A14F14828074602001CA26E /* CreateAmi.swift */; };
+		1AF3EA6D2809D62D003618C4 /* RotateLeft.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1AF3EA6C2809D62D003618C4 /* RotateLeft.gif */; };
 		768DCACB2807785F0046D2D1 /* ButtonBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768DCACA2807785F0046D2D1 /* ButtonBar.swift */; };
 		768DCADB28093E840046D2D1 /* GifImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768DCADA28093E840046D2D1 /* GifImage.swift */; };
-		768DCAE0280944B20046D2D1 /* RotateLeft.gif in Resources */ = {isa = PBXBuildFile; fileRef = 768DCADF280944B20046D2D1 /* RotateLeft.gif */; };
 		B76B70502805E45300CA1DAD /* petit_amiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76B704F2805E45300CA1DAD /* petit_amiApp.swift */; };
 		B76B70522805E45300CA1DAD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76B70512805E45300CA1DAD /* ContentView.swift */; };
 		B76B70542805E45600CA1DAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B76B70532805E45600CA1DAD /* Assets.xcassets */; };
@@ -35,10 +35,10 @@
 		1A14F146280633B8001CA26E /* NameAmiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameAmiView.swift; sourceTree = "<group>"; };
 		1A14F14828074602001CA26E /* CreateAmi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAmi.swift; sourceTree = "<group>"; };
 		1AAA3A5C2805E749006318D3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1AF3EA6C2809D62D003618C4 /* RotateLeft.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = RotateLeft.gif; sourceTree = "<group>"; };
 		768DCACA2807785F0046D2D1 /* ButtonBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBar.swift; sourceTree = "<group>"; };
 		768DCADA28093E840046D2D1 /* GifImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImage.swift; sourceTree = "<group>"; };
 		768DCADE280944100046D2D1 /* RotateRight.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = RotateRight.gif; sourceTree = "<group>"; };
-		768DCADF280944B20046D2D1 /* RotateLeft.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = RotateLeft.gif; path = ../../../../Downloads/RotateLeft.gif; sourceTree = "<group>"; };
 		B76B704C2805E45300CA1DAD /* petit-ami.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "petit-ami.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B76B704F2805E45300CA1DAD /* petit_amiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = petit_amiApp.swift; sourceTree = "<group>"; };
 		B76B70512805E45300CA1DAD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				768DCADE280944100046D2D1 /* RotateRight.gif */,
-				768DCADF280944B20046D2D1 /* RotateLeft.gif */,
+				1AF3EA6C2809D62D003618C4 /* RotateLeft.gif */,
 				B778043628061F41009E9FD1 /* StatusBars.swift */,
 				B778043828061F59009E9FD1 /* FeedButton.swift */,
 				B778043A28061F62009E9FD1 /* SleepButton.swift */,
@@ -198,8 +198,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AF3EA6D2809D62D003618C4 /* RotateLeft.gif in Resources */,
 				B76B705E2805E76900CA1DAD /* README.md in Resources */,
-				768DCAE0280944B20046D2D1 /* RotateLeft.gif in Resources */,
 				B76B70572805E45600CA1DAD /* Preview Assets.xcassets in Resources */,
 				B76B70542805E45600CA1DAD /* Assets.xcassets in Resources */,
 			);

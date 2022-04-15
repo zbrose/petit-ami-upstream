@@ -16,8 +16,8 @@ class Ami: Object, ObjectKeyIdentifiable {
     @Persisted var lifeStage = "baby"
     @Persisted var lvl = 0
     @Persisted var alive = true
-    @Persisted var energy = 100
+    @Persisted var energy = 100.0
     @Persisted var hunger = 100
-    @Persisted var thirst = 100
+    @Persisted var hygiene = 100
     @Persisted var happiness = 100
 }

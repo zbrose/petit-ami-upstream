@@ -20,7 +20,7 @@ class RealmManager: ObservableObject {
     func openRealm() {
             do {
                 // Setting the schema version
-                let config = Realm.Configuration(schemaVersion: 2)
+                let config = Realm.Configuration(schemaVersion: 4)
 
                 // Letting Realm know we want the defaultConfiguration to be the config variable
                 Realm.Configuration.defaultConfiguration = config
@@ -94,13 +94,13 @@ class RealmManager: ObservableObject {
                 guard !amiToUpdate.isEmpty else {return}
                 
                 try localRealm.write{
-                    if (amiToUpdate[0].thirst + 20 < 100) {
-                        amiToUpdate[0].thirst = amiToUpdate[0].thirst + 20
+                    if (amiToUpdate[0].hygiene + 20 < 100) {
+                        amiToUpdate[0].hygiene = amiToUpdate[0].hygiene + 20
                     } else {
-                        amiToUpdate[0].thirst = 100
+                        amiToUpdate[0].hygiene = 100
                     }
                     getAmis()
-                    print("Current Thirst: \(amiToUpdate[0].thirst)")
+                    print("Current Thirst: \(amiToUpdate[0].hygiene)")
                 }
             }catch{
                 print("Error updating task \(id) to Realm: \(error)")
@@ -136,7 +136,11 @@ class RealmManager: ObservableObject {
                    guard !amiToUpdate.isEmpty else {return}
                    
                    try localRealm.write {
-                       amiToUpdate[0].hunger = amiToUpdate[0].hunger - 1
+                       if (amiToUpdate[0].hunger - 1 < 0) {
+                           amiToUpdate[0].hunger = 0
+                       } else {
+                           amiToUpdate[0].hunger = amiToUpdate[0].hunger - 1
+                       }
                        getAmis()
                        print("Current Hunger: \(amiToUpdate[0].hunger)")
                    }
@@ -153,9 +157,13 @@ class RealmManager: ObservableObject {
                    guard !amiToUpdate.isEmpty else {return}
                    
                    try localRealm.write{
-                       amiToUpdate[0].thirst = amiToUpdate[0].thirst - 1
+                       if (amiToUpdate[0].hygiene - 1 < 0) {
+                           amiToUpdate[0].hygiene = 0
+                       } else {
+                           amiToUpdate[0].hygiene = amiToUpdate[0].hygiene - 1
+                       }
                        getAmis()
-                       print("Current Thirst: \(amiToUpdate[0].thirst)")
+                       print("Current Hygiene: \(amiToUpdate[0].hygiene)")
                    }
                }catch{
                    print("Error updating task \(id) to Realm: \(error)")
@@ -170,7 +178,7 @@ class RealmManager: ObservableObject {
                    guard !amiToUpdate.isEmpty else {return}
                    
                    try localRealm.write{
-                       if (amiToUpdate[0].happiness < 0) {
+                       if (amiToUpdate[0].happiness - 1 < 0) {
                            amiToUpdate[0].happiness = 0
                        } else {
                            amiToUpdate[0].happiness = amiToUpdate[0].happiness - 1
@@ -191,9 +199,13 @@ class RealmManager: ObservableObject {
                    guard !amiToUpdate.isEmpty else {return}
                    
                    try localRealm.write{
-                       amiToUpdate[0].energy = amiToUpdate[0].energy - 1
+                       if (amiToUpdate[0].energy - 0.2 > 0) {
+                           amiToUpdate[0].energy = amiToUpdate[0].energy - 0.2
+                       } else {
+                           amiToUpdate[0].energy = 0
+                       }
                        getAmis()
-                       print("Current Happiness: \(amiToUpdate[0].energy)")
+                       print("Current Energy: \(amiToUpdate[0].energy)")
                    }
                }catch{
                    print("Error updating task \(id) to Realm: \(error)")
@@ -211,10 +223,10 @@ class RealmManager: ObservableObject {
                        if (amiToUpdate[0].energy + 1 < 100) {
                            amiToUpdate[0].energy = amiToUpdate[0].energy + 1
                        } else {
-                           amiToUpdate[0].happiness = 100
+                           amiToUpdate[0].energy = 100
                        }
                        getAmis()
-                       print("Current Happiness: \(amiToUpdate[0].energy)")
+                       print("Current Energy: \(amiToUpdate[0].energy)")
                    }
                }catch{
                    print("Error updating task \(id) to Realm: \(error)")
