@@ -108,6 +108,7 @@ struct ButtonBar: View {
     @State private var showInstructions = false
     @State public var sleepState: Bool = false
     @State var shownImage = "BabyCrack"
+    @State var lStage = "egg"
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     let timerThree = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
     let energyTimer = Timer.publish(every: 100, on: .main, in: .common).autoconnect()
@@ -116,7 +117,7 @@ struct ButtonBar: View {
         return Calendar.current.dateComponents([.day], from: date, to: Date()).day ?? 0
     }
     
-    func lifeStage(int: Int) -> String {
+    func lifeStage(int: Int) -> String{
         if (int >= 100) {
             return "adult"
         } else if (int >= 50) {
@@ -129,13 +130,13 @@ struct ButtonBar: View {
             return "egg"
         }
     }
-        
     var body: some View {
         VStack{
             let amiAge = daysSince(date: RealmManager().amis[0].creationDate)
-                                   
+            let lStage = lifeStage(int: amiAge)
             Button{
                 showInstructions.toggle()
+                print(lStage)
             } label :{
                 Image(systemName: "questionmark.circle.fill")
                     .resizable()
@@ -153,7 +154,7 @@ struct ButtonBar: View {
             HStack{
                 VStack{
                     
-                    Text("Age: \(amiAge) d / \(lifeStage(int: 0))")
+                    Text("Age: \(amiAge) d / \(lifeStage(int: amiAge))")
                         .font(.system(size: 10, weight: .bold, design: .default))
                 }
             
@@ -216,7 +217,8 @@ struct ButtonBar: View {
                     .padding()
                 
             }
-    
+            
+            if( lStage == "egg"){
                 if(sleepState == true) {
                     GifImage("SleepingEgg")
                         .frame(width:500,height: 500)
@@ -255,6 +257,12 @@ struct ButtonBar: View {
                         .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
                   
                 }
+            }else{
+                GifImage("Still")
+                    .frame(width:500,height: 500)
+                    .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+            }
+               
            
            
 //            GifImage(shownImage)
