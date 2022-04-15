@@ -33,6 +33,7 @@ struct ButtonBar: View {
     @State var thirstRemaining = RealmManager().amis[0].thirst
     @State var happinessRemaining = RealmManager().amis[0].happiness
     @State var energyRemaining = Double(RealmManager().amis[0].energy)
+    @State private var showInstructions = false
     @State public var sleepState: Bool = false
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     let energyTimer = Timer.publish(every: 100, on: .main, in: .common).autoconnect()
@@ -43,6 +44,18 @@ struct ButtonBar: View {
         
     var body: some View {
         VStack{
+            
+            Button{
+                showInstructions.toggle()
+            } label :{
+                Image(systemName: "questionmark.circle.fill")
+                    .resizable()
+                    .frame(width: 30, height: 30)
+            }
+            .sheet(isPresented: $showInstructions){
+                InstructionsView()
+            }
+            Spacer()
             Image("Still-1")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -151,15 +164,19 @@ struct ButtonBar: View {
             
 //            Text("\(Showhunger)")
         }
-    }
-    }
+        }
+        }
+        
+    
+    
+
 
 
 struct ButtonBar_Previews: PreviewProvider {
     static var previews: some View {
         ButtonBar()
             .environmentObject(RealmManager())
-            
     }
 }
+
 
