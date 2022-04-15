@@ -164,12 +164,15 @@ struct ButtonBar: View {
 
             FeedButton()
                 .onTapGesture {
-                    if (hungerRemaining + 20 < 100) {
+                    if (sleepState == true) {
+                        print("Sleeping")
+                    } else if (hungerRemaining + 20 < 100) {
                         hungerRemaining += 20
+                        realmManager.updateAmiHunger(id:realmManager.amis[0].id)
                     } else {
                         hungerRemaining = 100
+                        realmManager.updateAmiHunger(id:realmManager.amis[0].id)
                     }
-                    realmManager.updateAmiHunger(id:realmManager.amis[0].id)
                 }
          
             SleepButton(sleepState: .constant(sleepState))
@@ -181,17 +184,24 @@ struct ButtonBar: View {
             
             DrinkButton()
                 .onTapGesture {
-                    if (hygieneRemaining + 20 < 100) {
+                    if (sleepState == true) {
+                        print("Sleeping")
+                    } else if (hygieneRemaining + 20 < 100) {
                         hygieneRemaining += 20
+                        realmManager.updateAmiThirst(id:realmManager.amis[0].id)
                     } else {
                         hygieneRemaining = 100
+                        realmManager.updateAmiThirst(id:realmManager.amis[0].id)
                     }
-                    realmManager.updateAmiThirst(id:realmManager.amis[0].id)
                 }
             
             PetButton()
                 .onTapGesture {
-                    print("Pet")
+                    if (sleepState == true) {
+                        print("Sleeping")
+                    } else {
+                        print("Pet")
+                    }
                 }
             
                 }
