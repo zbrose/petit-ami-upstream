@@ -13,7 +13,6 @@
 		1A14F14928074602001CA26E /* CreateAmi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A14F14828074602001CA26E /* CreateAmi.swift */; };
 		768DCACB2807785F0046D2D1 /* ButtonBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768DCACA2807785F0046D2D1 /* ButtonBar.swift */; };
 		768DCADB28093E840046D2D1 /* GifImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768DCADA28093E840046D2D1 /* GifImage.swift */; };
-		768DCADD280943920046D2D1 /* RotateRight.gif in Resources */ = {isa = PBXBuildFile; fileRef = 768DCADC280943920046D2D1 /* RotateRight.gif */; };
 		768DCAE0280944B20046D2D1 /* RotateLeft.gif in Resources */ = {isa = PBXBuildFile; fileRef = 768DCADF280944B20046D2D1 /* RotateLeft.gif */; };
 		B76B70502805E45300CA1DAD /* petit_amiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76B704F2805E45300CA1DAD /* petit_amiApp.swift */; };
 		B76B70522805E45300CA1DAD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76B70512805E45300CA1DAD /* ContentView.swift */; };
@@ -38,7 +37,6 @@
 		1AAA3A5C2805E749006318D3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		768DCACA2807785F0046D2D1 /* ButtonBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBar.swift; sourceTree = "<group>"; };
 		768DCADA28093E840046D2D1 /* GifImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImage.swift; sourceTree = "<group>"; };
-		768DCADC280943920046D2D1 /* RotateRight.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = RotateRight.gif; path = ../../../../Downloads/RotateRight.gif; sourceTree = "<group>"; };
 		768DCADE280944100046D2D1 /* RotateRight.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = RotateRight.gif; sourceTree = "<group>"; };
 		768DCADF280944B20046D2D1 /* RotateLeft.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = RotateLeft.gif; path = ../../../../Downloads/RotateLeft.gif; sourceTree = "<group>"; };
 		B76B704C2805E45300CA1DAD /* petit-ami.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "petit-ami.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,14 +66,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		768DCAD528093B4A0046D2D1 /* gifs */ = {
-			isa = PBXGroup;
-			children = (
-				768DCADC280943920046D2D1 /* RotateRight.gif */,
-			);
-			path = gifs;
-			sourceTree = "<group>";
-		};
 		B76B70432805E45300CA1DAD = {
 			isa = PBXGroup;
 			children = (
@@ -96,7 +86,6 @@
 		B76B704E2805E45300CA1DAD /* petit-ami */ = {
 			isa = PBXGroup;
 			children = (
-				768DCAD528093B4A0046D2D1 /* gifs */,
 				B778043528061EDA009E9FD1 /* Components */,
 				B778043428061ECD009E9FD1 /* Views */,
 				B76B705D2805E76900CA1DAD /* README.md */,
@@ -209,7 +198,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				768DCADD280943920046D2D1 /* RotateRight.gif in Resources */,
 				B76B705E2805E76900CA1DAD /* README.md in Resources */,
 				768DCAE0280944B20046D2D1 /* RotateLeft.gif in Resources */,
 				B76B70572805E45600CA1DAD /* Preview Assets.xcassets in Resources */,
