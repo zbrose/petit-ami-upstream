@@ -4,7 +4,6 @@
 //
 //  Created by Triston Palacios on 4/14/22.
 //
-
 import Foundation
 import SwiftUI
 import WebKit
@@ -25,9 +24,12 @@ struct GifImage: UIViewRepresentable{
                      mimeType: "image/gif",
                      characterEncodingName: "UTF-8",
                      baseURL: url.deletingLastPathComponent()
+                     
         )
-        
+        webView.backgroundColor = .clear
+        webView.isOpaque = false
         return webView
+        
     }
     func updateUIView(_ uiView: WKWebView, context: Context) {
         uiView.reload()
