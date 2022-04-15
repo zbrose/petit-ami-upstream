@@ -200,4 +200,8 @@ class RealmManager: ObservableObject {
                }
            }
        }
+    
+    func updateAge(id:ObjectId) {
+        
+    }
 }

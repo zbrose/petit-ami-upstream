@@ -37,6 +37,10 @@ struct ButtonBar: View {
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     let energyTimer = Timer.publish(every: 100, on: .main, in: .common).autoconnect()
    
+    func daysSince(date: Date) -> Int {
+        return Calendar.current.dateComponents([.day], from: date, to: Date()).day ?? 0
+    }
+        
     var body: some View {
         VStack{
             Image("Still-1")
@@ -46,15 +50,13 @@ struct ButtonBar: View {
                 .frame(width: 375.0, height: 450.0, alignment: .top)
             VStack{
                 
-            
-                
                 Text("\(realmManager.amis[0].name)")
                     .font(.system(size: 30, weight: .bold, design: .default))
     //            print("\(ButtonInfo)")
             HStack{
                 VStack{
                     
-                    Text("Age: \(realmManager.amis[0].age)/\(realmManager.amis[0].lifeStage)")
+                    Text("Age: \(daysSince(date: realmManager.amis[0].creationDate)) d / \(realmManager.amis[0].lifeStage)")
                         .font(.system(size: 10, weight: .bold, design: .default))
                     
                     Text("Energy: \(String(realmManager.amis[0].energy))")
