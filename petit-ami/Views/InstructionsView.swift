@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct InstructionsView: View {
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         VStack {
+            Button ("Back"){
+                dismiss()
+            }
+            
             Text("Welcome to Petit Ami!")
                 .font(.title).bold()
                 .padding()
