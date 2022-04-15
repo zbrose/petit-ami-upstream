@@ -200,4 +200,25 @@ class RealmManager: ObservableObject {
                }
            }
        }
+    
+    func increaseAmiEnergy(id:ObjectId){
+           if let localRealm = localRealm {
+               do{
+                  let amiToUpdate = localRealm.objects(Ami.self).filter(NSPredicate(format:"id == %@",id))
+                   guard !amiToUpdate.isEmpty else {return}
+                   
+                   try localRealm.write{
+                       if (amiToUpdate[0].energy + 1 < 100) {
+                           amiToUpdate[0].energy = amiToUpdate[0].energy + 1
+                       } else {
+                           amiToUpdate[0].happiness = 100
+                       }
+                       getAmis()
+                       print("Current Happiness: \(amiToUpdate[0].energy)")
+                   }
+               }catch{
+                   print("Error updating task \(id) to Realm: \(error)")
+               }
+           }
+       }
 }
