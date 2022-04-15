@@ -237,6 +237,10 @@ struct ButtonBar: View {
                     GifImage("EggEating")
                         .frame(width:500,height: 500)
                         .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+                }else if(hygieneRemaining < 20 ) {
+                    GifImage("poopEgg")
+                        .frame(width:500,height: 500)
+                        .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
                 }else{
                     GifImage("Still")
                         .frame(width:500,height: 500)
