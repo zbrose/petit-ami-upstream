@@ -39,7 +39,7 @@ struct GifImage: UIViewRepresentable{
 
 struct GifImage_Previes: PreviewProvider{
     static var previews: some View{
-      GifImage("RotateLeft")
+      GifImage("RotateRight")
     }
     
 }
