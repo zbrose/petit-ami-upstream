@@ -52,6 +52,52 @@ struct EnergyGaugeProgressStyle: ProgressViewStyle {
     
 }
 
+struct HappinessGaugeProgressStyle: ProgressViewStyle {
+    var strokeColor = Color.green
+    var strokeWidth = 2.0
+
+    func makeBody(configuration: Configuration) -> some View {
+        let fractionCompleted = configuration.fractionCompleted ?? 0
+
+        return ZStack {
+            Circle()
+                .trim(from: 0, to: CGFloat(fractionCompleted))
+                .stroke(strokeColor, style: StrokeStyle(lineWidth: CGFloat(strokeWidth), lineCap: .round))
+                .rotationEffect(.degrees(-90))
+            Image("Happy")
+                .resizable()
+                .padding(1.5)
+                .frame(width: 20, height: 20)
+        }
+        
+        
+    }
+    
+}
+
+struct HygieneGaugeProgressStyle: ProgressViewStyle {
+    var strokeColor = Color.brown
+    var strokeWidth = 2.0
+
+    func makeBody(configuration: Configuration) -> some View {
+        let fractionCompleted = configuration.fractionCompleted ?? 0
+
+        return ZStack {
+            Circle()
+                .trim(from: 0, to: CGFloat(fractionCompleted))
+                .stroke(strokeColor, style: StrokeStyle(lineWidth: CGFloat(strokeWidth), lineCap: .round))
+                .rotationEffect(.degrees(-90))
+            Image("Stink")
+                .resizable()
+                .padding(1.5)
+                .frame(width: 20, height: 20)
+        }
+        
+        
+    }
+    
+}
+
 struct ButtonBar: View {
     @StateObject var realmManager = RealmManager()
     @State private var showNameAmiView = false
@@ -136,7 +182,10 @@ struct ButtonBar: View {
                 
                 VStack{
             
-                    Text("Happiness: \(String(realmManager.amis[0].happiness))")
+                    ProgressView(value: Float(happinessRemaining)/100)
+                        .progressViewStyle(HappinessGaugeProgressStyle())
+                        .frame(width: 20, height: 20)
+                                    .contentShape(Rectangle())
                         .onReceive(timer) { _ in
                             if ((hygieneRemaining < 50 || hungerRemaining < 50) && happinessRemaining > 0) {
                                 happinessRemaining -= 1
@@ -150,8 +199,11 @@ struct ButtonBar: View {
                 }
                 
                 VStack{
-                    Text("Hygiene:\(realmManager.amis[0].hygiene)")
-                        .font(.system(size: 10, weight: .bold, design: .default))
+//                    Text("Hygiene:\(realmManager.amis[0].hygiene)")
+                    ProgressView(value: Float(hygieneRemaining)/100)
+                        .progressViewStyle(HygieneGaugeProgressStyle())
+                        .frame(width: 20, height: 20)
+                                    .contentShape(Rectangle())
                         .onReceive(timer) { _ in
                             if hygieneRemaining > 0 {
                                 hygieneRemaining -= 1
