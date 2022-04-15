@@ -67,10 +67,25 @@ struct ButtonBar: View {
     func daysSince(date: Date) -> Int {
         return Calendar.current.dateComponents([.day], from: date, to: Date()).day ?? 0
     }
+    
+    func lifeStage(int: Int) -> String {
+        if (int >= 100) {
+            return "adult"
+        } else if (int >= 50) {
+            return "teenager"
+        } else if (int >= 25) {
+            return "child"
+        } else if (int >= 2) {
+            return "baby"
+        } else {
+            return "egg"
+        }
+    }
         
     var body: some View {
         VStack{
-            
+            let amiAge = daysSince(date: RealmManager().amis[0].creationDate)
+                                   
             Button{
                 showInstructions.toggle()
             } label :{
@@ -99,7 +114,7 @@ struct ButtonBar: View {
             HStack{
                 VStack{
                     
-                    Text("Age: \(daysSince(date: realmManager.amis[0].creationDate)) d / \(realmManager.amis[0].lifeStage)")
+                    Text("Age: \(amiAge) d / \(lifeStage(int: amiAge))")
                         .font(.system(size: 10, weight: .bold, design: .default))
                     
                     ProgressView(value: Float(energyRemaining)/100)
