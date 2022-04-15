@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-struct GaugeProgressStyle: ProgressViewStyle {
+struct HungerGaugeProgressStyle: ProgressViewStyle {
     var strokeColor = Color.red
     var strokeWidth = 2.0
 
@@ -23,7 +23,33 @@ struct GaugeProgressStyle: ProgressViewStyle {
                 .padding(1.5)
                 .frame(width: 20, height: 20)
         }
+        
+        
     }
+    
+}
+
+struct EnergyGaugeProgressStyle: ProgressViewStyle {
+    var strokeColor = Color.yellow
+    var strokeWidth = 2.0
+
+    func makeBody(configuration: Configuration) -> some View {
+        let fractionCompleted = configuration.fractionCompleted ?? 0
+
+        return ZStack {
+            Circle()
+                .trim(from: 0, to: CGFloat(fractionCompleted))
+                .stroke(strokeColor, style: StrokeStyle(lineWidth: CGFloat(strokeWidth), lineCap: .round))
+                .rotationEffect(.degrees(-90))
+            Image("Bolt")
+                .resizable()
+                .padding(1.5)
+                .frame(width: 20, height: 20)
+        }
+        
+        
+    }
+    
 }
 
 struct ButtonBar: View {
@@ -52,11 +78,15 @@ struct ButtonBar: View {
                 InstructionsView()
             }
             Spacer()
-            Image("Still-1")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .padding(.all)
-                .frame(width: 375.0, height: 450.0, alignment: .top)
+            GifImage("RotateLeft")
+                .frame(width:500,height: 500)
+                .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+          
+//            Image("Still-1")
+//                .resizable()
+//                .aspectRatio(contentMode: .fit)
+//                .padding(.all)
+//                .frame(width: 375.0, height: 450.0, alignment: .top)
             VStack{
                 
             
@@ -78,6 +108,18 @@ struct ButtonBar: View {
                                 realmManager.decreaseAmiEnergy(id: realmManager.amis[0].id)
                             }
                         }
+                    ProgressView(value: Float(energyRemaining)/100)
+                        .progressViewStyle(EnergyGaugeProgressStyle())
+                        .frame(width: 20, height: 20)
+                                    .contentShape(Rectangle())
+                        .onReceive(timer) { _ in
+                            if hungerRemaining > 0 {
+                                hungerRemaining -= 1
+                                realmManager.decreaseAmiHunger(id: realmManager.amis[0].id)
+                            }
+                        }
+                        .font(.system(size: 10, weight: .bold, design: .default))
+                        .onAppear()
                 }
                 VStack{
             
@@ -104,7 +146,7 @@ struct ButtonBar: View {
                             }
                         }
                     ProgressView(value: Float(hungerRemaining)/100)
-                        .progressViewStyle(GaugeProgressStyle())
+                        .progressViewStyle(HungerGaugeProgressStyle())
                         .frame(width: 20, height: 20)
                                     .contentShape(Rectangle())
                         .onReceive(timer) { _ in
