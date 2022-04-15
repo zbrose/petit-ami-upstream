@@ -27,7 +27,36 @@
 		B778043D28061F73009E9FD1 /* DrinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B778043C28061F73009E9FD1 /* DrinkButton.swift */; };
 		B778043F28061F8A009E9FD1 /* PetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B778043E28061F8A009E9FD1 /* PetButton.swift */; };
 		B7A354462808D7B5006067D9 /* InstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A354452808D7B5006067D9 /* InstructionsView.swift */; };
+		B7CF2D102809EA4600D02EFF /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7CF2D0F2809EA4600D02EFF /* WidgetKit.framework */; };
+		B7CF2D122809EA4600D02EFF /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7CF2D112809EA4600D02EFF /* SwiftUI.framework */; };
+		B7CF2D152809EA4600D02EFF /* petit_ami_widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CF2D142809EA4600D02EFF /* petit_ami_widget.swift */; };
+		B7CF2D172809EA4700D02EFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7CF2D162809EA4700D02EFF /* Assets.xcassets */; };
+		B7CF2D1B2809EA4700D02EFF /* petit-ami-widgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B7CF2D0D2809EA4600D02EFF /* petit-ami-widgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B7CF2D192809EA4700D02EFF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B76B70442805E45300CA1DAD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B7CF2D0C2809EA4600D02EFF;
+			remoteInfo = "petit-ami-widgetExtension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B7CF2D1C2809EA4700D02EFF /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B7CF2D1B2809EA4700D02EFF /* petit-ami-widgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1A14F142280631EA001CA26E /* Ami.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ami.swift; sourceTree = "<group>"; };
@@ -51,6 +80,13 @@
 		B778043C28061F73009E9FD1 /* DrinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkButton.swift; sourceTree = "<group>"; };
 		B778043E28061F8A009E9FD1 /* PetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetButton.swift; sourceTree = "<group>"; };
 		B7A354452808D7B5006067D9 /* InstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsView.swift; sourceTree = "<group>"; };
+		B7CF2D0D2809EA4600D02EFF /* petit-ami-widgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "petit-ami-widgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7CF2D0F2809EA4600D02EFF /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		B7CF2D112809EA4600D02EFF /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		B7CF2D142809EA4600D02EFF /* petit_ami_widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = petit_ami_widget.swift; sourceTree = "<group>"; };
+		B7CF2D162809EA4700D02EFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B7CF2D182809EA4700D02EFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7CF2D202809F3B300D02EFF /* petit-ami.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "petit-ami.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +99,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B7CF2D0A2809EA4600D02EFF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7CF2D122809EA4600D02EFF /* SwiftUI.framework in Frameworks */,
+				B7CF2D102809EA4600D02EFF /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -71,6 +116,8 @@
 			children = (
 				1AAA3A5C2805E749006318D3 /* README.md */,
 				B76B704E2805E45300CA1DAD /* petit-ami */,
+				B7CF2D132809EA4600D02EFF /* petit-ami-widget */,
+				B7CF2D0E2809EA4600D02EFF /* Frameworks */,
 				B76B704D2805E45300CA1DAD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -79,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				B76B704C2805E45300CA1DAD /* petit-ami.app */,
+				B7CF2D0D2809EA4600D02EFF /* petit-ami-widgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -86,6 +134,7 @@
 		B76B704E2805E45300CA1DAD /* petit-ami */ = {
 			isa = PBXGroup;
 			children = (
+				B7CF2D202809F3B300D02EFF /* petit-ami.entitlements */,
 				B778043528061EDA009E9FD1 /* Components */,
 				B778043428061ECD009E9FD1 /* Views */,
 				B76B705D2805E76900CA1DAD /* README.md */,
@@ -133,6 +182,25 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		B7CF2D0E2809EA4600D02EFF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B7CF2D0F2809EA4600D02EFF /* WidgetKit.framework */,
+				B7CF2D112809EA4600D02EFF /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B7CF2D132809EA4600D02EFF /* petit-ami-widget */ = {
+			isa = PBXGroup;
+			children = (
+				B7CF2D142809EA4600D02EFF /* petit_ami_widget.swift */,
+				B7CF2D162809EA4700D02EFF /* Assets.xcassets */,
+				B7CF2D182809EA4700D02EFF /* Info.plist */,
+			);
+			path = "petit-ami-widget";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,10 +211,12 @@
 				B76B70482805E45300CA1DAD /* Sources */,
 				B76B70492805E45300CA1DAD /* Frameworks */,
 				B76B704A2805E45300CA1DAD /* Resources */,
+				B7CF2D1C2809EA4700D02EFF /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B7CF2D1A2809EA4700D02EFF /* PBXTargetDependency */,
 			);
 			name = "petit-ami";
 			packageProductDependencies = (
@@ -156,6 +226,23 @@
 			productName = "petit-ami";
 			productReference = B76B704C2805E45300CA1DAD /* petit-ami.app */;
 			productType = "com.apple.product-type.application";
+		};
+		B7CF2D0C2809EA4600D02EFF /* petit-ami-widgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7CF2D1F2809EA4700D02EFF /* Build configuration list for PBXNativeTarget "petit-ami-widgetExtension" */;
+			buildPhases = (
+				B7CF2D092809EA4600D02EFF /* Sources */,
+				B7CF2D0A2809EA4600D02EFF /* Frameworks */,
+				B7CF2D0B2809EA4600D02EFF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "petit-ami-widgetExtension";
+			productName = "petit-ami-widgetExtension";
+			productReference = B7CF2D0D2809EA4600D02EFF /* petit-ami-widgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -168,6 +255,9 @@
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
 					B76B704B2805E45300CA1DAD = {
+						CreatedOnToolsVersion = 13.3.1;
+					};
+					B7CF2D0C2809EA4600D02EFF = {
 						CreatedOnToolsVersion = 13.3.1;
 					};
 				};
@@ -189,6 +279,7 @@
 			projectRoot = "";
 			targets = (
 				B76B704B2805E45300CA1DAD /* petit-ami */,
+				B7CF2D0C2809EA4600D02EFF /* petit-ami-widgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -202,6 +293,14 @@
 				B76B705E2805E76900CA1DAD /* README.md in Resources */,
 				B76B70572805E45600CA1DAD /* Preview Assets.xcassets in Resources */,
 				B76B70542805E45600CA1DAD /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7CF2D0B2809EA4600D02EFF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7CF2D172809EA4700D02EFF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,7 +328,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B7CF2D092809EA4600D02EFF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7CF2D152809EA4600D02EFF /* petit_ami_widget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B7CF2D1A2809EA4700D02EFF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B7CF2D0C2809EA4600D02EFF /* petit-ami-widgetExtension */;
+			targetProxy = B7CF2D192809EA4700D02EFF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		B76B70582805E45600CA1DAD /* Debug */ = {
@@ -349,8 +464,10 @@
 		B76B705B2805E45600CA1DAD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "petit-ami/petit-ami.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"petit-ami/Preview Content\"";
@@ -377,8 +494,10 @@
 		B76B705C2805E45600CA1DAD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "petit-ami/petit-ami.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"petit-ami/Preview Content\"";
@@ -402,6 +521,58 @@
 			};
 			name = Release;
 		};
+		B7CF2D1D2809EA4700D02EFF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "petit-ami-widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "petit-ami-widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "zbrose.petit-ami.petit-ami-widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B7CF2D1E2809EA4700D02EFF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "petit-ami-widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "petit-ami-widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "zbrose.petit-ami.petit-ami-widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -419,6 +590,15 @@
 			buildConfigurations = (
 				B76B705B2805E45600CA1DAD /* Debug */,
 				B76B705C2805E45600CA1DAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B7CF2D1F2809EA4700D02EFF /* Build configuration list for PBXNativeTarget "petit-ami-widgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7CF2D1D2809EA4700D02EFF /* Debug */,
+				B7CF2D1E2809EA4700D02EFF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
