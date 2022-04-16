@@ -109,9 +109,9 @@ struct ButtonBar: View {
     @State public var sleepState: Bool = false
     @State var shownImage = "BabyCrack"
     @State var lStage = "egg"
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: 100, on: .main, in: .common).autoconnect()
     let timerThree = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
-    let energyTimer = Timer.publish(every: 100, on: .main, in: .common).autoconnect()
+    let energyTimer = Timer.publish(every: 1000, on: .main, in: .common).autoconnect()
    
     func daysSince(date: Date) -> Int {
         return Calendar.current.dateComponents([.day], from: date, to: Date()).day ?? 0
@@ -275,8 +275,8 @@ struct ButtonBar: View {
                             shownImage = "BabyStill"
                             
                             }
-                } else if(shownImage == "BabyEat") {
-                    GifImage("EggEating")
+                } else if(shownImage == "EggEating") {
+                    GifImage("BabyEat")
                         .frame(width:500,height: 500)
                         .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
                         .onReceive(timerThree) { _ in
