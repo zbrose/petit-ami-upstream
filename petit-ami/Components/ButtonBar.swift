@@ -257,10 +257,45 @@ struct ButtonBar: View {
                         .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
                   
                 }
-            }else{
-                GifImage("Still")
-                    .frame(width:500,height: 500)
-                    .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+            }else if(lStage == "baby"){
+                if(sleepState == true) {
+                    GifImage("BabySleep")
+                        .frame(width:500,height: 500)
+                        .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+                } else if shownImage == "HeartEgg"{
+                    GifImage("BabyHeart")
+                        .frame(width:500,height: 500)
+                        .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+                        .onReceive(timerThree) { _ in
+//                            Image("Still-1")
+//                              .resizable()
+//                              .aspectRatio(contentMode: .fit)
+//                              .padding(.all)
+//                              .frame(width: 375.0, height: 450.0, alignment: .top)
+                            shownImage = "BabyStill"
+                            
+                            }
+                } else if(shownImage == "BabyEat") {
+                    GifImage("EggEating")
+                        .frame(width:500,height: 500)
+                        .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+                        .onReceive(timerThree) { _ in
+//                            Image("Still-1")
+//                              .resizable()
+//                              .aspectRatio(contentMode: .fit)
+//                              .padding(.all)
+//                              .frame(width: 375.0, height: 450.0, alignment: .top)
+                            shownImage = "BabyStill"}
+                }else if(hygieneRemaining < 20 ) {
+                    GifImage("BabyStink")
+                        .frame(width:500,height: 500)
+                        .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+                }else{
+                    GifImage("BabyStill")
+                        .frame(width:500,height: 500)
+                        .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+                  
+                }
             }
                
            
