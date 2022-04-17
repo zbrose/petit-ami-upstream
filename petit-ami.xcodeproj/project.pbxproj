@@ -25,6 +25,11 @@
 		768DCAF4280B82250046D2D1 /* BabySleep.gif in Resources */ = {isa = PBXBuildFile; fileRef = 768DCAEF280B82250046D2D1 /* BabySleep.gif */; };
 		768DCAF5280B82250046D2D1 /* BabyStill.gif in Resources */ = {isa = PBXBuildFile; fileRef = 768DCAF0280B82250046D2D1 /* BabyStill.gif */; };
 		768DCAF6280B82250046D2D1 /* BabyStink.gif in Resources */ = {isa = PBXBuildFile; fileRef = 768DCAF1280B82250046D2D1 /* BabyStink.gif */; };
+		768DCAF9280BB4710046D2D1 /* TeenHeart.gif in Resources */ = {isa = PBXBuildFile; fileRef = 768DCAF7280BB4710046D2D1 /* TeenHeart.gif */; };
+		768DCAFA280BB4710046D2D1 /* TeenSleep.gif in Resources */ = {isa = PBXBuildFile; fileRef = 768DCAF8280BB4710046D2D1 /* TeenSleep.gif */; };
+		768DCAFE280BB4760046D2D1 /* TeenEat.gif in Resources */ = {isa = PBXBuildFile; fileRef = 768DCAFB280BB4760046D2D1 /* TeenEat.gif */; };
+		768DCAFF280BB4760046D2D1 /* TeenStink.gif in Resources */ = {isa = PBXBuildFile; fileRef = 768DCAFC280BB4760046D2D1 /* TeenStink.gif */; };
+		768DCB00280BB4760046D2D1 /* TeenMove.gif in Resources */ = {isa = PBXBuildFile; fileRef = 768DCAFD280BB4760046D2D1 /* TeenMove.gif */; };
 		B76B70502805E45300CA1DAD /* petit_amiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76B704F2805E45300CA1DAD /* petit_amiApp.swift */; };
 		B76B70522805E45300CA1DAD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76B70512805E45300CA1DAD /* ContentView.swift */; };
 		B76B70542805E45600CA1DAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B76B70532805E45600CA1DAD /* Assets.xcassets */; };
@@ -91,6 +96,11 @@
 		768DCAEF280B82250046D2D1 /* BabySleep.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = BabySleep.gif; path = ../../../../Downloads/BabySleep.gif; sourceTree = "<group>"; };
 		768DCAF0280B82250046D2D1 /* BabyStill.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = BabyStill.gif; path = ../../../../Downloads/BabyStill.gif; sourceTree = "<group>"; };
 		768DCAF1280B82250046D2D1 /* BabyStink.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = BabyStink.gif; path = ../../../../Downloads/BabyStink.gif; sourceTree = "<group>"; };
+		768DCAF7280BB4710046D2D1 /* TeenHeart.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = TeenHeart.gif; path = ../../../../Downloads/TeenHeart.gif; sourceTree = "<group>"; };
+		768DCAF8280BB4710046D2D1 /* TeenSleep.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = TeenSleep.gif; path = ../../../../Downloads/TeenSleep.gif; sourceTree = "<group>"; };
+		768DCAFB280BB4760046D2D1 /* TeenEat.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = TeenEat.gif; path = ../../../../Downloads/TeenEat.gif; sourceTree = "<group>"; };
+		768DCAFC280BB4760046D2D1 /* TeenStink.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = TeenStink.gif; path = ../../../../Downloads/TeenStink.gif; sourceTree = "<group>"; };
+		768DCAFD280BB4760046D2D1 /* TeenMove.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = TeenMove.gif; path = ../../../../Downloads/TeenMove.gif; sourceTree = "<group>"; };
 		B76B704C2805E45300CA1DAD /* petit-ami.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "petit-ami.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B76B704F2805E45300CA1DAD /* petit_amiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = petit_amiApp.swift; sourceTree = "<group>"; };
 		B76B70512805E45300CA1DAD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -193,6 +203,11 @@
 		B778043528061EDA009E9FD1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				768DCAFB280BB4760046D2D1 /* TeenEat.gif */,
+				768DCAFD280BB4760046D2D1 /* TeenMove.gif */,
+				768DCAFC280BB4760046D2D1 /* TeenStink.gif */,
+				768DCAF7280BB4710046D2D1 /* TeenHeart.gif */,
+				768DCAF8280BB4710046D2D1 /* TeenSleep.gif */,
 				768DCAEE280B82250046D2D1 /* BabyEat.gif */,
 				768DCAED280B82250046D2D1 /* BabyHeart.gif */,
 				768DCAEF280B82250046D2D1 /* BabySleep.gif */,
@@ -326,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AF3EA6D2809D62D003618C4 /* RotateLeft.gif in Resources */,
+				768DCAF9280BB4710046D2D1 /* TeenHeart.gif in Resources */,
 				768DCAF6280B82250046D2D1 /* BabyStink.gif in Resources */,
 				B76B705E2805E76900CA1DAD /* README.md in Resources */,
 				B76B70572805E45600CA1DAD /* Preview Assets.xcassets in Resources */,
@@ -333,13 +349,17 @@
 				768DCAF2280B82250046D2D1 /* BabyHeart.gif in Resources */,
 				B76B70542805E45600CA1DAD /* Assets.xcassets in Resources */,
 				768DCAE42809F85A0046D2D1 /* EggEating.gif in Resources */,
+				768DCAFF280BB4760046D2D1 /* TeenStink.gif in Resources */,
 				768DCAF4280B82250046D2D1 /* BabySleep.gif in Resources */,
+				768DCAFA280BB4710046D2D1 /* TeenSleep.gif in Resources */,
 				768DCAE22809F8550046D2D1 /* BabyCrack.gif in Resources */,
 				768DCAEC280A31E90046D2D1 /* poopEgg.gif in Resources */,
 				768DCAE62809F85E0046D2D1 /* SleepingEgg.gif in Resources */,
 				768DCAE82809F8670046D2D1 /* HeartEgg.gif in Resources */,
 				768DCAEA280A21CE0046D2D1 /* Still.gif in Resources */,
 				768DCAF3280B82250046D2D1 /* BabyEat.gif in Resources */,
+				768DCAFE280BB4760046D2D1 /* TeenEat.gif in Resources */,
+				768DCB00280BB4760046D2D1 /* TeenMove.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
