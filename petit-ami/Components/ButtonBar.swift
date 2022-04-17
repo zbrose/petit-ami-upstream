@@ -131,9 +131,18 @@ struct ButtonBar: View {
             return "egg"
         }
     }
+    
+    func evolutionBtn(int: Int) -> Bool{
+        if (int == 2 || int == 25 || int == 50 || int == 100) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     var body: some View {
         VStack{
-            let amiAge = daysSince(date: RealmManager().amis[0].creationDate)
+            let amiAge = 2
             let lStage = lifeStage(int: amiAge)
             Button{
                 showInstructions.toggle()
@@ -162,11 +171,11 @@ struct ButtonBar: View {
                 
                     
                     
-                Button{
+                    (evolutionBtn(int: amiAge) == true ? Button{
                     showEvolutionView.toggle()
                 } label :{
-                    Text("Evolve!")
-                }
+                    Image(systemName: "play.square")
+                } : nil)
                 .sheet(isPresented: $showEvolutionView){
                     EvoView()
                 }

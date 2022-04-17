@@ -38,7 +38,6 @@
 		B778043D28061F73009E9FD1 /* DrinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B778043C28061F73009E9FD1 /* DrinkButton.swift */; };
 		B778043F28061F8A009E9FD1 /* PetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B778043E28061F8A009E9FD1 /* PetButton.swift */; };
 		B77B72E0280B886A004CD3CA /* EvoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77B72DF280B886A004CD3CA /* EvoView.swift */; };
-		B77B72E4280B8A26004CD3CA /* EvoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77B72E3280B8A26004CD3CA /* EvoButton.swift */; };
 		B7A354462808D7B5006067D9 /* InstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A354452808D7B5006067D9 /* InstructionsView.swift */; };
 		B7CF2D102809EA4600D02EFF /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7CF2D0F2809EA4600D02EFF /* WidgetKit.framework */; };
 		B7CF2D122809EA4600D02EFF /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7CF2D112809EA4600D02EFF /* SwiftUI.framework */; };
@@ -104,7 +103,6 @@
 		B778043C28061F73009E9FD1 /* DrinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkButton.swift; sourceTree = "<group>"; };
 		B778043E28061F8A009E9FD1 /* PetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetButton.swift; sourceTree = "<group>"; };
 		B77B72DF280B886A004CD3CA /* EvoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvoView.swift; sourceTree = "<group>"; };
-		B77B72E3280B8A26004CD3CA /* EvoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvoButton.swift; sourceTree = "<group>"; };
 		B7A354452808D7B5006067D9 /* InstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsView.swift; sourceTree = "<group>"; };
 		B7CF2D0D2809EA4600D02EFF /* petit-ami-widgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "petit-ami-widgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7CF2D0F2809EA4600D02EFF /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -216,7 +214,6 @@
 				1A14F14828074602001CA26E /* CreateAmi.swift */,
 				768DCACA2807785F0046D2D1 /* ButtonBar.swift */,
 				768DCADA28093E840046D2D1 /* GifImage.swift */,
-				B77B72E3280B8A26004CD3CA /* EvoButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -361,7 +358,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B77B72E4280B8A26004CD3CA /* EvoButton.swift in Sources */,
 				1A14F14928074602001CA26E /* CreateAmi.swift in Sources */,
 				B778043D28061F73009E9FD1 /* DrinkButton.swift in Sources */,
 				B778043728061F41009E9FD1 /* StatusBars.swift in Sources */,
