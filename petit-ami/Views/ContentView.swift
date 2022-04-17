@@ -10,8 +10,9 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var realmManager = RealmManager()
     @State private var showNameAmiView = false
-    @State private var showInstructions = false
-    
+//    @State private var showInstructions = false
+    @State private var showEvolutionView = false
+   
     var body: some View {
     
         
@@ -35,9 +36,13 @@ struct ContentView: View {
         .sheet(isPresented: $showNameAmiView) {
             NameAmiView()
                 .environmentObject(realmManager)
-        .sheet(isPresented: $showInstructions){
-            InstructionsView()
+//        .sheet(isPresented: $showInstructions){
+//            InstructionsView()
+//        }
+        .sheet(isPresented: $showEvolutionView){
+            EvoView()
         }
+        
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
         .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
