@@ -296,6 +296,45 @@ struct ButtonBar: View {
                         .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
                   
                 }
+            }else if(lStage == "child"){
+                if(sleepState == true) {
+                    GifImage("TeenSleep")
+                        .frame(width:500,height: 500)
+                        .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+                } else if shownImage == "HeartEgg"{
+                    GifImage("TeenHeart")
+                        .frame(width:500,height: 500)
+                        .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+                        .onReceive(timerThree) { _ in
+//                            Image("Still-1")
+//                              .resizable()
+//                              .aspectRatio(contentMode: .fit)
+//                              .padding(.all)
+//                              .frame(width: 375.0, height: 450.0, alignment: .top)
+                            shownImage = "BabyStill"
+                            
+                            }
+                } else if(shownImage == "EggEating") {
+                    GifImage("TeenEat")
+                        .frame(width:500,height: 500)
+                        .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+                        .onReceive(timerThree) { _ in
+//                            Image("Still-1")
+//                              .resizable()
+//                              .aspectRatio(contentMode: .fit)
+//                              .padding(.all)
+//                              .frame(width: 375.0, height: 450.0, alignment: .top)
+                            shownImage = "BabyStill"}
+                }else if(hygieneRemaining < 20 ) {
+                    GifImage("TeenStink")
+                        .frame(width:500,height: 500)
+                        .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+                }else{
+                    GifImage("TeenMove")
+                        .frame(width:500,height: 500)
+                        .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+                  
+                }
             }
                
            
