@@ -105,11 +105,12 @@ struct ButtonBar: View {
     @State var hungerRemaining = RealmManager().amis[0].hunger
     @State var hygieneRemaining = RealmManager().amis[0].hygiene
     @State var happinessRemaining = RealmManager().amis[0].happiness
-    @State var energyRemaining = Double(RealmManager().amis[0].energy)
+    @State var energyRemaining = RealmManager().amis[0].energy
     @State private var showInstructions = false
     @State public var sleepState: Bool = false
     @State var shownImage = "BabyCrack"
     @State var lStage = "egg"
+    @State var showReplaceAmiView = false
     let timer = Timer.publish(every: 100, on: .main, in: .common).autoconnect()
     let timerThree = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
     let energyTimer = Timer.publish(every: 1000, on: .main, in: .common).autoconnect()
@@ -140,9 +141,19 @@ struct ButtonBar: View {
         }
     }
     
+    func liveState() -> Bool {
+        if (Double(hygieneRemaining) < 0.1 && Double(hungerRemaining) < 0.1 && Double(happinessRemaining) < 0.1 && Double(energyRemaining) < 0.1) {
+            RealmManager().deadState(id: realmManager.amis[0].id)
+            return false
+        } else {
+            return true
+        }
+    }
+    
+    
     var body: some View {
         VStack{
-            let amiAge = 2
+            let amiAge = daysSince(date: (RealmManager().amis.count > 0 ? RealmManager().amis[0].creationDate : Date()))
             let lStage = lifeStage(int: amiAge)
             Button{
                 showInstructions.toggle()
@@ -164,7 +175,7 @@ struct ButtonBar: View {
                     .font(.system(size: 30, weight: .bold, design: .default))
     //            print("\(ButtonInfo)")
 
-                Text("Age: \(amiAge) d / \(lifeStage(int: amiAge))")
+                        Text("Age: \(liveState() ? String(amiAge) + " d" : "dead") / \(lifeStage(int: amiAge))")
                     .font(.system(size: 10, weight: .bold, design: .default))
                     
                     }
@@ -195,7 +206,7 @@ struct ButtonBar: View {
                             energyRemaining += 1
                             realmManager.increaseAmiEnergy(id: realmManager.amis[0].id)
                         } else if (sleepState == false && energyRemaining - 0.2 > 0) {
-                            energyRemaining -= 0.2
+                            energyRemaining -= 1
                             realmManager.decreaseAmiEnergy(id: realmManager.amis[0].id)
                         }
                     }
@@ -372,64 +383,76 @@ struct ButtonBar: View {
 //                .padding(.all)
 //                .frame(width: 375.0, height: 450.0, alignment: .top)
            
-        HStack{
+            HStack{
             
+            if (liveState() == true) {
+                FeedButton()
+                    .onTapGesture {
+                        if (sleepState == true) {
+                            print("Sleeping")
+                        } else if (hungerRemaining + 20 < 100) {
+                            hungerRemaining += 20
+                            realmManager.updateAmiHunger(id:realmManager.amis[0].id)
+                            shownImage = "EggEating"
+                            print(shownImage)
+                        } else {
+                            hungerRemaining = 100
+                            realmManager.updateAmiHunger(id:realmManager.amis[0].id)
+                        }
+                    }
+             
+                SleepButton(sleepState: .constant(sleepState))
+                    .onTapGesture {
+                        sleepState.toggle()
+                        print(realmManager.amis[0].energy)
+                        print(liveState())
+                    }
 
-            FeedButton()
-                .onTapGesture {
-                    if (sleepState == true) {
-                        print("Sleeping")
-                    } else if (hungerRemaining + 20 < 100) {
-                        hungerRemaining += 20
-                        realmManager.updateAmiHunger(id:realmManager.amis[0].id)
-                        shownImage = "EggEating"
-                        print(shownImage)
-                    } else {
-                        hungerRemaining = 100
-                        realmManager.updateAmiHunger(id:realmManager.amis[0].id)
+                
+                DrinkButton()
+                    .onTapGesture {
+                        if (sleepState == true) {
+                            print("Sleeping")
+                        } else if (hygieneRemaining + 20 < 100) {
+                            hygieneRemaining += 20
+                            realmManager.updateAmiThirst(id:realmManager.amis[0].id)
+                        } else {
+                            hygieneRemaining = 100
+                            realmManager.updateAmiThirst(id:realmManager.amis[0].id)
+                        }
                     }
-                }
-         
-            SleepButton(sleepState: .constant(sleepState))
-                .onTapGesture {
-                    sleepState.toggle()
-                    print(realmManager.amis[0].energy)
-                }
-
-            
-            DrinkButton()
-                .onTapGesture {
-                    if (sleepState == true) {
-                        print("Sleeping")
-                    } else if (hygieneRemaining + 20 < 100) {
-                        hygieneRemaining += 20
-                        realmManager.updateAmiThirst(id:realmManager.amis[0].id)
-                    } else {
-                        hygieneRemaining = 100
-                        realmManager.updateAmiThirst(id:realmManager.amis[0].id)
+                
+                PetButton()
+                    .onTapGesture {
+                        if (sleepState == true) {
+                            print("Sleeping")
+                        } else {
+                            print("Pet")
+                            shownImage = "HeartEgg"
+                            print(shownImage)
+                            realmManager.increaseAmiHappinessManual(id:realmManager.amis[0].id)
+                            happinessRemaining += 1
+                        }
                     }
+                
+                } else {
+                    ResetButton()
+                        .onTapGesture {
+                            showReplaceAmiView.toggle()
+                            hungerRemaining = 100
+                            hygieneRemaining = 100
+                            happinessRemaining = 100
+                            energyRemaining = 100
+                        }
                 }
-            
-            PetButton()
-                .onTapGesture {
-                    if (sleepState == true) {
-                        print("Sleeping")
-                    } else {
-                        print("Pet")
-                        shownImage = "HeartEgg"
-                        print(shownImage)
-                        realmManager.increaseAmiHappinessManual(id:realmManager.amis[0].id)
-                        happinessRemaining += 1
-                    }
-                }
-            
-                }
+            }
+        }
+        .sheet(isPresented: $showReplaceAmiView) {
+            ReplaceAmiView()
                 .environmentObject(realmManager)
-            
-//            Text("\(Showhunger)")
+
         }
-        }
-        }
+    }
         
     
     
@@ -444,3 +467,4 @@ struct ButtonBar_Previews: PreviewProvider {
 }
 
 
+}

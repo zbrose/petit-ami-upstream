@@ -12,6 +12,8 @@
 		1A14F147280633B8001CA26E /* NameAmiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A14F146280633B8001CA26E /* NameAmiView.swift */; };
 		1A14F14928074602001CA26E /* CreateAmi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A14F14828074602001CA26E /* CreateAmi.swift */; };
 		1AF3EA6D2809D62D003618C4 /* RotateLeft.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1AF3EA6C2809D62D003618C4 /* RotateLeft.gif */; };
+		1AF3EA7A280CC607003618C4 /* ResetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF3EA79280CC607003618C4 /* ResetButton.swift */; };
+		1AF3EA7C280CCFDE003618C4 /* ReplaceAmiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF3EA7B280CCFDE003618C4 /* ReplaceAmiView.swift */; };
 		768DCACB2807785F0046D2D1 /* ButtonBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768DCACA2807785F0046D2D1 /* ButtonBar.swift */; };
 		768DCADB28093E840046D2D1 /* GifImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768DCADA28093E840046D2D1 /* GifImage.swift */; };
 		768DCAE22809F8550046D2D1 /* BabyCrack.gif in Resources */ = {isa = PBXBuildFile; fileRef = 768DCAE12809F8550046D2D1 /* BabyCrack.gif */; };
@@ -82,6 +84,8 @@
 		1A14F14828074602001CA26E /* CreateAmi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAmi.swift; sourceTree = "<group>"; };
 		1AAA3A5C2805E749006318D3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1AF3EA6C2809D62D003618C4 /* RotateLeft.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = RotateLeft.gif; sourceTree = "<group>"; };
+		1AF3EA79280CC607003618C4 /* ResetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetButton.swift; sourceTree = "<group>"; };
+		1AF3EA7B280CCFDE003618C4 /* ReplaceAmiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplaceAmiView.swift; sourceTree = "<group>"; };
 		768DCACA2807785F0046D2D1 /* ButtonBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBar.swift; sourceTree = "<group>"; };
 		768DCADA28093E840046D2D1 /* GifImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImage.swift; sourceTree = "<group>"; };
 		768DCADE280944100046D2D1 /* RotateRight.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = RotateRight.gif; sourceTree = "<group>"; };
@@ -196,6 +200,7 @@
 				1A14F146280633B8001CA26E /* NameAmiView.swift */,
 				B7A354452808D7B5006067D9 /* InstructionsView.swift */,
 				B77B72DF280B886A004CD3CA /* EvoView.swift */,
+				1AF3EA7B280CCFDE003618C4 /* ReplaceAmiView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -229,6 +234,7 @@
 				1A14F14828074602001CA26E /* CreateAmi.swift */,
 				768DCACA2807785F0046D2D1 /* ButtonBar.swift */,
 				768DCADA28093E840046D2D1 /* GifImage.swift */,
+				1AF3EA79280CC607003618C4 /* ResetButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -382,6 +388,7 @@
 				B778043D28061F73009E9FD1 /* DrinkButton.swift in Sources */,
 				B778043728061F41009E9FD1 /* StatusBars.swift in Sources */,
 				B778043B28061F62009E9FD1 /* SleepButton.swift in Sources */,
+				1AF3EA7C280CCFDE003618C4 /* ReplaceAmiView.swift in Sources */,
 				768DCACB2807785F0046D2D1 /* ButtonBar.swift in Sources */,
 				1A14F143280631EA001CA26E /* Ami.swift in Sources */,
 				B76B70522805E45300CA1DAD /* ContentView.swift in Sources */,
@@ -389,6 +396,7 @@
 				1A14F1452806336E001CA26E /* RealmManager.swift in Sources */,
 				B7A354462808D7B5006067D9 /* InstructionsView.swift in Sources */,
 				B76B70502805E45300CA1DAD /* petit_amiApp.swift in Sources */,
+				1AF3EA7A280CC607003618C4 /* ResetButton.swift in Sources */,
 				768DCADB28093E840046D2D1 /* GifImage.swift in Sources */,
 				B778043928061F59009E9FD1 /* FeedButton.swift in Sources */,
 				B778043F28061F8A009E9FD1 /* PetButton.swift in Sources */,
