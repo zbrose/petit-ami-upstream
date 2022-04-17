@@ -101,6 +101,7 @@ struct HygieneGaugeProgressStyle: ProgressViewStyle {
 struct ButtonBar: View {
     @StateObject var realmManager = RealmManager()
     @State private var showNameAmiView = false
+    @State private var showEvolutionView = false
     @State var hungerRemaining = RealmManager().amis[0].hunger
     @State var hygieneRemaining = RealmManager().amis[0].hygiene
     @State var happinessRemaining = RealmManager().amis[0].happiness
@@ -148,19 +149,33 @@ struct ButtonBar: View {
             Spacer()
             VStack{
                 
+                HStack{
+                    VStack{
                 Text("\(realmManager.amis[0].name)")
                     .font(.system(size: 30, weight: .bold, design: .default))
     //            print("\(ButtonInfo)")
-            HStack{
-                VStack{
+
+                Text("Age: \(amiAge) d / \(lifeStage(int: amiAge))")
+                    .font(.system(size: 10, weight: .bold, design: .default))
                     
-                    Text("Age: \(amiAge) d / \(lifeStage(int: amiAge))")
-                        .font(.system(size: 10, weight: .bold, design: .default))
-                }
-            
-            }
+                    }
                 
+                    
+                    
+                Button{
+                    showEvolutionView.toggle()
+                } label :{
+                    Text("Evolve!")
+                }
+                .sheet(isPresented: $showEvolutionView){
+                    EvoView()
+                }
+                    
+
+                        
+                }
             }
+            
             HStack{
                 ProgressView(value: Float(energyRemaining)/100)
                     .progressViewStyle(EnergyGaugeProgressStyle())
