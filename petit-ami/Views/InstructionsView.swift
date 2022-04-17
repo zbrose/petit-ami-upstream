@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct InstructionsView: View {
+    @StateObject var realmManager = RealmManager()
+    @State var showReplaceAmiView = false
     @Environment(\.dismiss) var dismiss
     
     var body: some View {

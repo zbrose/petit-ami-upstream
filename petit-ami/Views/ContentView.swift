@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var realmManager = RealmManager()
-    @State private var showNameAmiView = false
+    @State public var showNameAmiView = false
 //    @State private var showInstructions = false
     @State private var showEvolutionView = false
    
@@ -17,6 +17,7 @@ struct ContentView: View {
     
         
         (realmManager.amis.count > 0 ? AnyView(ButtonBar()) : AnyView(NameAmiView().environmentObject(realmManager)))
+        
 //            List {
 //                ForEach(realmManager.amis, id: \.id) { ami in
 //                    if !ami.isInvalidated {
