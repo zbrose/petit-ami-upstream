@@ -122,7 +122,7 @@ struct ButtonBar: View {
             return "adult"
         } else if (int >= 50) {
             return "teenager"
-        } else if (int >= 25) {
+        } else if (int >= 3) {
             return "child"
         } else if (int >= 2) {
             return "baby"
@@ -394,6 +394,8 @@ struct ButtonBar: View {
                         print("Pet")
                         shownImage = "HeartEgg"
                         print(shownImage)
+                        realmManager.increaseAmiHappinessManual(id:realmManager.amis[0].id)
+                        happinessRemaining += 1
                     }
                 }
             
