@@ -112,9 +112,9 @@ struct ButtonBar: View {
     @State var lStage = "egg"
     @State var showReplaceAmiView = false
     @State var musicPlaying = false
-    let timer = Timer.publish(every: 100, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     let timerThree = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
-    let energyTimer = Timer.publish(every: 1000, on: .main, in: .common).autoconnect()
+    let energyTimer = Timer.publish(every: 10, on: .main, in: .common).autoconnect()
    
     func daysSince(date: Date) -> Int {
         return Calendar.current.dateComponents([.day], from: date, to: Date()).day ?? 0
@@ -305,129 +305,131 @@ struct ButtonBar: View {
                 
             }
             
-            if( lStage == "egg"){
-                if(sleepState == true) {
-                    GifImage("SleepingEgg")
+            if(liveState() == true){
+                if( lStage == "egg"){
+                    if(sleepState == true) {
+                        GifImage("SleepingEgg")
+                            .frame(width:500,height: 500)
+                            .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+                    } else if shownImage == "HeartEgg"{
+                        GifImage("HeartEgg")
+                            .frame(width:500,height: 500)
+                            .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+                            .onReceive(timerThree) { _ in
+    //                            Image("Still-1")
+    //                              .resizable()
+    //                              .aspectRatio(contentMode: .fit)
+    //                              .padding(.all)
+    //                              .frame(width: 375.0, height: 450.0, alignment: .top)
+                                shownImage = "Still"
+                                
+                                }
+                    } else if(shownImage == "EggEating") {
+                        GifImage("EggEating")
+                            .frame(width:500,height: 500)
+                            .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+                            .onReceive(timerThree) { _ in
+    //                            Image("Still-1")
+    //                              .resizable()
+    //                              .aspectRatio(contentMode: .fit)
+    //                              .padding(.all)
+    //                              .frame(width: 375.0, height: 450.0, alignment: .top)
+                                shownImage = "Still"}
+                    }else if(hygieneRemaining < 20 ) {
+                        GifImage("poopEgg")
+                            .frame(width:500,height: 500)
+                            .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+                    }else{
+                        GifImage("Still")
+                            .frame(width:500,height: 500)
+                            .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+                      
+                    }
+                }else if(lStage == "baby"){
+                    if(sleepState == true) {
+                        GifImage("BabySleep")
+                            .frame(width:500,height: 500)
+                            .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+                    } else if shownImage == "HeartEgg"{
+                        GifImage("BabyHeart")
+                            .frame(width:500,height: 500)
+                            .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+                            .onReceive(timerThree) { _ in
+    //                            Image("Still-1")
+    //                              .resizable()
+    //                              .aspectRatio(contentMode: .fit)
+    //                              .padding(.all)
+    //                              .frame(width: 375.0, height: 450.0, alignment: .top)
+                                shownImage = "BabyStill"
+                                
+                                }
+                    } else if(shownImage == "EggEating") {
+                        GifImage("BabyEat")
+                            .frame(width:500,height: 500)
+                            .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+                            .onReceive(timerThree) { _ in
+    //                            Image("Still-1")
+    //                              .resizable()
+    //                              .aspectRatio(contentMode: .fit)
+    //                              .padding(.all)
+    //                              .frame(width: 375.0, height: 450.0, alignment: .top)
+                                shownImage = "BabyStill"}
+                    }else if(hygieneRemaining < 20 ) {
+                        GifImage("BabyStink")
+                            .frame(width:500,height: 500)
+                            .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+                    }else{
+                        GifImage("BabyStill")
+                            .frame(width:500,height: 500)
+                            .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+                      
+                    }
+                }else if(lStage == "child"){
+                    if(sleepState == true) {
+                        GifImage("TeenSleep")
+                            .frame(width:500,height: 500)
+                            .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+                    } else if shownImage == "HeartEgg"{
+                        GifImage("TeenHeart")
+                            .frame(width:500,height: 500)
+                            .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+                            .onReceive(timerThree) { _ in
+    //                            Image("Still-1")
+    //                              .resizable()
+    //                              .aspectRatio(contentMode: .fit)
+    //                              .padding(.all)
+    //                              .frame(width: 375.0, height: 450.0, alignment: .top)
+                                shownImage = "BabyStill"
+                                
+                                }
+                    } else if(shownImage == "EggEating") {
+                        GifImage("TeenEat")
+                            .frame(width:500,height: 500)
+                            .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+                            .onReceive(timerThree) { _ in
+    //                            Image("Still-1")
+    //                              .resizable()
+    //                              .aspectRatio(contentMode: .fit)
+    //                              .padding(.all)
+    //                              .frame(width: 375.0, height: 450.0, alignment: .top)
+                                shownImage = "BabyStill"}
+                    }else if(hygieneRemaining < 20 ) {
+                        GifImage("TeenStink")
+                            .frame(width:500,height: 500)
+                            .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+                    }else{
+                        
+                      
+                    }
+            
+            
+                }}else{
+       
+                    GifImage("dead")
                         .frame(width:500,height: 500)
                         .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
-                } else if shownImage == "HeartEgg"{
-                    GifImage("HeartEgg")
-                        .frame(width:500,height: 500)
-                        .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
-                        .onReceive(timerThree) { _ in
-//                            Image("Still-1")
-//                              .resizable()
-//                              .aspectRatio(contentMode: .fit)
-//                              .padding(.all)
-//                              .frame(width: 375.0, height: 450.0, alignment: .top)
-                            shownImage = "Still"
-                            
-                            }
-                } else if(shownImage == "EggEating") {
-                    GifImage("EggEating")
-                        .frame(width:500,height: 500)
-                        .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
-                        .onReceive(timerThree) { _ in
-//                            Image("Still-1")
-//                              .resizable()
-//                              .aspectRatio(contentMode: .fit)
-//                              .padding(.all)
-//                              .frame(width: 375.0, height: 450.0, alignment: .top)
-                            shownImage = "Still"}
-                }else if(hygieneRemaining < 20 ) {
-                    GifImage("poopEgg")
-                        .frame(width:500,height: 500)
-                        .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
-                }else{
-                    GifImage("Still")
-                        .frame(width:500,height: 500)
-                        .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
-                  
                 }
-            }else if(lStage == "baby"){
-                if(sleepState == true) {
-                    GifImage("BabySleep")
-                        .frame(width:500,height: 500)
-                        .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
-                } else if shownImage == "HeartEgg"{
-                    GifImage("BabyHeart")
-                        .frame(width:500,height: 500)
-                        .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
-                        .onReceive(timerThree) { _ in
-//                            Image("Still-1")
-//                              .resizable()
-//                              .aspectRatio(contentMode: .fit)
-//                              .padding(.all)
-//                              .frame(width: 375.0, height: 450.0, alignment: .top)
-                            shownImage = "BabyStill"
-                            
-                            }
-                } else if(shownImage == "EggEating") {
-                    GifImage("BabyEat")
-                        .frame(width:500,height: 500)
-                        .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
-                        .onReceive(timerThree) { _ in
-//                            Image("Still-1")
-//                              .resizable()
-//                              .aspectRatio(contentMode: .fit)
-//                              .padding(.all)
-//                              .frame(width: 375.0, height: 450.0, alignment: .top)
-                            shownImage = "BabyStill"}
-                }else if(hygieneRemaining < 20 ) {
-                    GifImage("BabyStink")
-                        .frame(width:500,height: 500)
-                        .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
-                }else{
-                    GifImage("BabyStill")
-                        .frame(width:500,height: 500)
-                        .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
-                  
-                }
-            }else if(lStage == "child"){
-                if(sleepState == true) {
-                    GifImage("TeenSleep")
-                        .frame(width:500,height: 500)
-                        .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
-                } else if shownImage == "HeartEgg"{
-                    GifImage("TeenHeart")
-                        .frame(width:500,height: 500)
-                        .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
-                        .onReceive(timerThree) { _ in
-//                            Image("Still-1")
-//                              .resizable()
-//                              .aspectRatio(contentMode: .fit)
-//                              .padding(.all)
-//                              .frame(width: 375.0, height: 450.0, alignment: .top)
-                            shownImage = "BabyStill"
-                            
-                            }
-                } else if(shownImage == "EggEating") {
-                    GifImage("TeenEat")
-                        .frame(width:500,height: 500)
-                        .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
-                        .onReceive(timerThree) { _ in
-//                            Image("Still-1")
-//                              .resizable()
-//                              .aspectRatio(contentMode: .fit)
-//                              .padding(.all)
-//                              .frame(width: 375.0, height: 450.0, alignment: .top)
-                            shownImage = "BabyStill"}
-                }else if(hygieneRemaining < 20 ) {
-                    GifImage("TeenStink")
-                        .frame(width:500,height: 500)
-                        .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
-                }else{
-                    GifImage("TeenMove")
-                        .frame(width:500,height: 500)
-                        .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
-                  
-                }
-            }else if(liveState() == false){
-                GifImage("dead")
-                    .frame(width:500,height: 500)
-                    .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
-                
-            }
+            
                
            
            
