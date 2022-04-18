@@ -18,7 +18,7 @@ struct EvoView: View {
         if(int == 2 && str == "egg") {
             return "BabyCrack"
         } else if (int == 25 && str == "baby") {
-            return "HeartEgg"
+            return "EggtoTeen"
         } else if (int == 50 && str == "child") {
             return "EggEating"
         } else if (int == 100 && str == "teenager") {

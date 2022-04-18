@@ -29,7 +29,7 @@ struct PetButton: View {
             
 
             
-            Image("HeartW")
+            Image("Heart")
                 .resizable()
                 .padding()
                 .frame(width: 80, height: 70)

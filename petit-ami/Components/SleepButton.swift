@@ -34,7 +34,7 @@ struct SleepButton: View {
             
 
             
-            Image(sleepState == false ? "SleepW" : "Sleep")
+            Image(sleepState == false ? "Sleep" : "Sleep")
                 .resizable()
                 .padding()
                 .frame(width: 70, height: 70)

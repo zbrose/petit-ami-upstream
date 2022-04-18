@@ -22,7 +22,7 @@ struct FeedButton: View {
             
 
             
-            Image("PizzaW")
+            Image("pizza")
                 .resizable()
                 .padding()
                 .frame(width: 70, height: 70)

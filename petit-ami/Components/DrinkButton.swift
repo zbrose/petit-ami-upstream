@@ -28,7 +28,7 @@ struct DrinkButton: View {
             
 
             
-            Image("HygieneW")
+            Image("Hygiene")
                 .resizable()
                 .padding()
                 .frame(width: 70, height: 70)
