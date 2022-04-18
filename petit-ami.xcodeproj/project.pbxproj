@@ -16,7 +16,6 @@
 		1AF3EA7C280CCFDE003618C4 /* ReplaceAmiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF3EA7B280CCFDE003618C4 /* ReplaceAmiView.swift */; };
 		7632346E280D08B0003D5FE3 /* Petit-Ami.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7632346D280D08B0003D5FE3 /* Petit-Ami.mp3 */; };
 		76323470280D0BA7003D5FE3 /* EggtoTeen.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7632346F280D0BA7003D5FE3 /* EggtoTeen.gif */; };
-		76323472280D1657003D5FE3 /* dead.gif in Resources */ = {isa = PBXBuildFile; fileRef = 76323471280D1657003D5FE3 /* dead.gif */; };
 		768DCACB2807785F0046D2D1 /* ButtonBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768DCACA2807785F0046D2D1 /* ButtonBar.swift */; };
 		768DCADB28093E840046D2D1 /* GifImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768DCADA28093E840046D2D1 /* GifImage.swift */; };
 		768DCAE22809F8550046D2D1 /* BabyCrack.gif in Resources */ = {isa = PBXBuildFile; fileRef = 768DCAE12809F8550046D2D1 /* BabyCrack.gif */; };
@@ -35,6 +34,7 @@
 		768DCAFE280BB4760046D2D1 /* TeenEat.gif in Resources */ = {isa = PBXBuildFile; fileRef = 768DCAFB280BB4760046D2D1 /* TeenEat.gif */; };
 		768DCAFF280BB4760046D2D1 /* TeenStink.gif in Resources */ = {isa = PBXBuildFile; fileRef = 768DCAFC280BB4760046D2D1 /* TeenStink.gif */; };
 		768DCB00280BB4760046D2D1 /* TeenMove.gif in Resources */ = {isa = PBXBuildFile; fileRef = 768DCAFD280BB4760046D2D1 /* TeenMove.gif */; };
+		7698B870280DC5AD00A19D1E /* dead.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7698B86F280DC5AD00A19D1E /* dead.gif */; };
 		B73B2906280CDEC3007E4FDE /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73B2905280CDEC3007E4FDE /* MusicPlayer.swift */; };
 		B76B70502805E45300CA1DAD /* petit_amiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76B704F2805E45300CA1DAD /* petit_amiApp.swift */; };
 		B76B70522805E45300CA1DAD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76B70512805E45300CA1DAD /* ContentView.swift */; };
@@ -76,7 +76,6 @@
 		1AF3EA7B280CCFDE003618C4 /* ReplaceAmiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplaceAmiView.swift; sourceTree = "<group>"; };
 		7632346D280D08B0003D5FE3 /* Petit-Ami.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Petit-Ami.mp3"; path = "../../../Downloads/Petit-Ami.mp3"; sourceTree = "<group>"; };
 		7632346F280D0BA7003D5FE3 /* EggtoTeen.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = EggtoTeen.gif; path = ../../../../Downloads/EggtoTeen.gif; sourceTree = "<group>"; };
-		76323471280D1657003D5FE3 /* dead.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = dead.gif; path = ../../../../Downloads/dead.gif; sourceTree = "<group>"; };
 		768DCACA2807785F0046D2D1 /* ButtonBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBar.swift; sourceTree = "<group>"; };
 		768DCADA28093E840046D2D1 /* GifImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImage.swift; sourceTree = "<group>"; };
 		768DCADE280944100046D2D1 /* RotateRight.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = RotateRight.gif; sourceTree = "<group>"; };
@@ -96,6 +95,7 @@
 		768DCAFB280BB4760046D2D1 /* TeenEat.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = TeenEat.gif; path = ../../../../Downloads/TeenEat.gif; sourceTree = "<group>"; };
 		768DCAFC280BB4760046D2D1 /* TeenStink.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = TeenStink.gif; path = ../../../../Downloads/TeenStink.gif; sourceTree = "<group>"; };
 		768DCAFD280BB4760046D2D1 /* TeenMove.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = TeenMove.gif; path = ../../../../Downloads/TeenMove.gif; sourceTree = "<group>"; };
+		7698B86F280DC5AD00A19D1E /* dead.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = dead.gif; path = ../../../../Downloads/dead.gif; sourceTree = "<group>"; };
 		B73B2905280CDEC3007E4FDE /* MusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
 		B76B704C2805E45300CA1DAD /* petit-ami.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "petit-ami.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B76B704F2805E45300CA1DAD /* petit_amiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = petit_amiApp.swift; sourceTree = "<group>"; };
@@ -192,8 +192,8 @@
 				768DCAFD280BB4760046D2D1 /* TeenMove.gif */,
 				768DCAFC280BB4760046D2D1 /* TeenStink.gif */,
 				768DCAF7280BB4710046D2D1 /* TeenHeart.gif */,
-				76323471280D1657003D5FE3 /* dead.gif */,
 				768DCAF8280BB4710046D2D1 /* TeenSleep.gif */,
+				7698B86F280DC5AD00A19D1E /* dead.gif */,
 				768DCAEE280B82250046D2D1 /* BabyEat.gif */,
 				768DCAED280B82250046D2D1 /* BabyHeart.gif */,
 				768DCAEF280B82250046D2D1 /* BabySleep.gif */,
@@ -317,7 +317,7 @@
 				768DCAF3280B82250046D2D1 /* BabyEat.gif in Resources */,
 				768DCAFE280BB4760046D2D1 /* TeenEat.gif in Resources */,
 				768DCB00280BB4760046D2D1 /* TeenMove.gif in Resources */,
-				76323472280D1657003D5FE3 /* dead.gif in Resources */,
+				7698B870280DC5AD00A19D1E /* dead.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
