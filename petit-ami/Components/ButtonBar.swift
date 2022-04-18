@@ -111,6 +111,7 @@ struct ButtonBar: View {
     @State var shownImage = "BabyCrack"
     @State var lStage = "egg"
     @State var showReplaceAmiView = false
+    @State var musicPlaying = false
     let timer = Timer.publish(every: 100, on: .main, in: .common).autoconnect()
     let timerThree = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
     let energyTimer = Timer.publish(every: 1000, on: .main, in: .common).autoconnect()
@@ -150,11 +151,29 @@ struct ButtonBar: View {
         }
     }
     
+    func playMusic(){
+        if musicPlaying == true {
+            MusicPlayer.shared.startBackgroundMusic()
+        } else{
+            MusicPlayer.shared.stopBackgroundMusic()
+        }
+    }
+    
     
     var body: some View {
         VStack{
             let amiAge = daysSince(date: (RealmManager().amis.count > 0 ? RealmManager().amis[0].creationDate : Date()))
             let lStage = lifeStage(int: amiAge)
+            HStack{
+                
+            Button{
+                musicPlaying.toggle()
+                print(musicPlaying)
+                playMusic()
+            } label: {
+                Image(systemName: "speaker.wave.3.fill")
+            }
+            
             Button{
                 showInstructions.toggle()
                 print(lStage)
@@ -162,6 +181,7 @@ struct ButtonBar: View {
                 Image(systemName: "questionmark.circle.fill")
                     .resizable()
                     .frame(width: 30, height: 30)
+            }
             }
             .sheet(isPresented: $showInstructions){
                 InstructionsView()

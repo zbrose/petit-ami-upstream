@@ -11,10 +11,11 @@ import RealmSwift
 class RealmManager: ObservableObject {
     private(set) var localRealm: Realm?
     @Published var amis: [Ami] = []
-    
+        
     init() {
             openRealm()
             getAmis()
+            
         }
     
     func openRealm() {

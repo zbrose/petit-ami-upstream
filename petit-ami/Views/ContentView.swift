@@ -12,9 +12,9 @@ struct ContentView: View {
     @State public var showNameAmiView = false
 //    @State private var showInstructions = false
     @State private var showEvolutionView = false
-   
-    var body: some View {
     
+    var body: some View {
+        
         
         (realmManager.amis.count > 0 ? AnyView(ButtonBar()) : AnyView(NameAmiView().environmentObject(realmManager)))
         
@@ -33,6 +33,7 @@ struct ContentView: View {
 //                    
 //                }
     
+        
         
         .sheet(isPresented: $showNameAmiView) {
             NameAmiView()
