@@ -178,9 +178,39 @@ struct ButtonBar: View {
                 showInstructions.toggle()
                 print(lStage)
             } label :{
-                Image(systemName: "questionmark.circle.fill")
-                    .resizable()
-                    .frame(width: 30, height: 30)
+                ZStack {
+                    Circle()
+                        .frame(width: 50)
+                        .foregroundColor(Color(hue: 0.000, saturation: 0.000, brightness: 0.908))
+                    
+                    Circle() // Our button
+                        .fill(Color(sleepState == false ? .gray : .white))
+                                    .frame(width: 50, height: 50)
+                                    .shadow(color: .black.opacity(0.3), radius: 0, x: 0, y: 8)
+                                    .overlay(
+                                        Circle()
+                                            .stroke(Color(.black), lineWidth: 7)
+                                            .frame(width: 60, height: 60)
+                                            .offset(x: 0, y: -5)
+                                            .mask(
+                                                Circle()
+                                                    .frame(width: 50, height: 50)
+                                            )
+                                    )
+                    
+
+                    
+                    Image("Question")
+                        .resizable()
+                        .padding()
+                        .frame(width: 70, height: 70)
+                        
+
+                        
+                }
+//                Image("Question")
+//                    .resizable()
+//                    .frame(width: 30, height: 30)
             }
             }
             .sheet(isPresented: $showInstructions){
@@ -193,10 +223,12 @@ struct ButtonBar: View {
                     VStack{
                 Text("\(realmManager.amis[0].name)")
                     .font(.system(size: 30, weight: .bold, design: .default))
+                    .foregroundColor(.black)
     //            print("\(ButtonInfo)")
 
                         Text("Age: \(liveState() ? String(amiAge) + " d" : "dead") / \(lifeStage(int: amiAge))")
                     .font(.system(size: 10, weight: .bold, design: .default))
+                    .foregroundColor(.black)
                     
                     }
                 
@@ -390,6 +422,11 @@ struct ButtonBar: View {
                         .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
                   
                 }
+            }else if(liveState() == false){
+                GifImage("dead")
+                    .frame(width:500,height: 500)
+                    .background(Color(hue: 0.086, saturation: 0.141, brightness: 0.972))
+                
             }
                
            
@@ -406,20 +443,7 @@ struct ButtonBar: View {
             HStack{
             
             if (liveState() == true) {
-                FeedButton()
-                    .onTapGesture {
-                        if (sleepState == true) {
-                            print("Sleeping")
-                        } else if (hungerRemaining + 20 < 100) {
-                            hungerRemaining += 20
-                            realmManager.updateAmiHunger(id:realmManager.amis[0].id)
-                            shownImage = "EggEating"
-                            print(shownImage)
-                        } else {
-                            hungerRemaining = 100
-                            realmManager.updateAmiHunger(id:realmManager.amis[0].id)
-                        }
-                    }
+                
              
                 SleepButton(sleepState: .constant(sleepState))
                     .onTapGesture {
@@ -452,6 +476,20 @@ struct ButtonBar: View {
                             print(shownImage)
                             realmManager.increaseAmiHappinessManual(id:realmManager.amis[0].id)
                             happinessRemaining += 1
+                        }
+                    }
+                FeedButton()
+                    .onTapGesture {
+                        if (sleepState == true) {
+                            print("Sleeping")
+                        } else if (hungerRemaining + 20 < 100) {
+                            hungerRemaining += 20
+                            realmManager.updateAmiHunger(id:realmManager.amis[0].id)
+                            shownImage = "EggEating"
+                            print(shownImage)
+                        } else {
+                            hungerRemaining = 100
+                            realmManager.updateAmiHunger(id:realmManager.amis[0].id)
                         }
                     }
                 

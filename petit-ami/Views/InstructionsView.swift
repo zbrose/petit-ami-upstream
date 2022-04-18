@@ -39,7 +39,7 @@ struct InstructionsView: View {
             HStack{
                 Text("Press")
                 DrinkButton()
-                Text("to hydrate your Ami.")
+                Text("to clean your Ami.")
             }
             HStack{
                 Text("Press")
